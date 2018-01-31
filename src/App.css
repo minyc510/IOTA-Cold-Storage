@@ -1,0 +1,81 @@
+.button {
+    background-color: #4256f4;
+    border-radius: 8px;
+    border: none;
+    color: white;
+    padding: 12px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 8px;
+}
+
+input[type=text], select {
+    width: 750px;
+    padding: 8px 8px 8px 8px;
+    margin: 8px 8px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    margin: 8px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: #4256f4;
+}
+.inactive {
+  background-color: #4256f4;
+}
+
+.infoBox {
+    margin: 8px;
+}
+
+.mouseBoxHeader {
+    text-align: center;
+}
+
+.mouseBox {
+    width: 1200px;
+    height: 250px;
+    border: 2px solid black;
+    margin: auto;
+    background-color: #05e1ff;
+}
+.mouseBoxText {
+    text-align: center;
+    font-size:500%;
+    vertical-align: middle;
+    opacity: 0.1;
+    transform: skewX(40deg);   
+}
+
