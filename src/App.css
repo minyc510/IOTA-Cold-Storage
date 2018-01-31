@@ -58,6 +58,7 @@ li a:hover:not(.active) {
 
 .infoBox {
     margin: 8px;
+    width: 800px;
 }
 
 .mouseBoxHeader {
@@ -65,17 +66,29 @@ li a:hover:not(.active) {
 }
 
 .mouseBox {
-    width: 1200px;
+    width: 900px;
     height: 250px;
     border: 2px solid black;
     margin: auto;
+
     background-color: #05e1ff;
-}
-.mouseBoxText {
-    text-align: center;
-    font-size:500%;
-    vertical-align: middle;
-    opacity: 0.1;
-    transform: skewX(40deg);   
+    background-image: url("iota-logo.png");
+    background-size: 850px 275px;
+    background-position: center center;
+    background-repeat:   no-repeat;
+    opacity: 0.5;
 }
 
+.mouseBoxText1 {
+    text-align: left;
+    font-size: 500%;
+    vertical-align: middle;
+    opacity: 0.2;
+}
+
+.mouseBoxText2 {
+    text-align: right;
+    font-size: 500%;
+    vertical-align: middle;
+    opacity: 0.2;
+}
