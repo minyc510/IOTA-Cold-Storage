@@ -23,6 +23,7 @@ input[type=text], select {
 
 h1,h2,h3,h4,h5,h6 {
     margin: 8px;
+    color: #ffffff;
 }
 
 ul {
@@ -59,6 +60,7 @@ li a:hover:not(.active) {
 .infoBox {
     margin: 8px;
     width: 800px;
+    color: #fce5e5;
 }
 
 .mouseBoxHeader {
@@ -71,7 +73,7 @@ li a:hover:not(.active) {
     border: 2px solid black;
     margin: auto;
 
-    background-color: #05e1ff;
+    background-color: #ffffff;
     background-image: url("iota-logo.png");
     background-size: 850px 275px;
     background-position: center center;
@@ -91,4 +93,8 @@ li a:hover:not(.active) {
     font-size: 500%;
     vertical-align: middle;
     opacity: 0.2;
+}
+
+body {
+   background-image: url("bluebackground.jpg");
 }

@@ -5,10 +5,18 @@ import tipIcon from './toolTipIcon.png';
 
 var collectionPoints = 300; //Number of mouse-coordinates required
 
+
+
 export class GenerateSeed extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { x: 0, y: 0, randArr: [], collected: 0, seed:'' };
+    this.state = {
+      x: 0,
+      y: 0,
+      randArr: [],
+      collected: 0,
+      seed:''
+    };
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -54,25 +62,22 @@ export class GenerateSeed extends React.Component {
       seedImage = <h3>Seed: {this.state.seed}</h3>
     }
 
-
-
     return (
-      <div style={{ height: 50 }}>
-
-
+      <div>
         <h2 class="mouseBoxHeader">Entropy Collection Box [{Math.floor((this.state.collected / collectionPoints)*100)}%]&nbsp;
           <a data-tip data-for='entropyTip'><img src={tipIcon} width="20px"/></a>
         </h2>
 
-
-        <ReactTooltip id='entropyTip' place="right" type="success" effect="float">
+        <ReactTooltip id='entropyTip' place="right" type="dark" effect="float">
           <p>Your mouse movements inside the box are recorded, and </p>
-          <p>used in further randomizing your seed.</p>
+          <p>used to help randomize your seed.</p>
         </ReactTooltip>
+
         <div class="mouseBox" onMouseMove={this.handleMouseMove.bind(this)}>
           <div class="mouseBoxText1">{ this.state.x }</div>
           <div class="mouseBoxText2">{ this.state.y }</div>
         </div>
+
         <button onClick={this.handleClick} class="button"> Generate New Seed </button>
         {seedImage}
 
