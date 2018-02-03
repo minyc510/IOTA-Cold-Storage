@@ -79,6 +79,14 @@ li a:hover:not(.active) {
     background-position: center center;
     background-repeat:   no-repeat;
     opacity: 0.5;
+    word-wrap: break-word;
+}
+
+.mouseBoxText {
+    opacity: 0.33;
+    font-size: 75%;
+
+
 }
 
 .mouseBoxText1 {

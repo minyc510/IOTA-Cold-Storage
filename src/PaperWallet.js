@@ -4,7 +4,7 @@ import './App.css';
 var IOTA = require('../node_modules/iota.lib.js/lib/iota.js');
 
 
-function PaperWallet(props) {
+function WalletImage(props) {
   return (
     <div>
       <h3>Wallet Address: {props.a}</h3>
@@ -13,7 +13,7 @@ function PaperWallet(props) {
   );
 }
 
-export class SeedForm extends React.Component {
+export class PaperWallet extends React.Component {
   constructor(props) {
     super(props);
     this.state = {seed: '', address: ''};
@@ -66,10 +66,11 @@ export class SeedForm extends React.Component {
   render() {
     let image = null;
     if (this.state.address !== '') {
-      image = <PaperWallet a={this.state.address} s={this.state.seed} />;
+      image = <WalletImage a={this.state.address} s={this.state.seed} />;
     }
     return (
       <div>
+        <h2>Input a private seed to generate the corresponding address.</h2 >
         <form onSubmit={this.handleSubmit}>
           <label>
             <input type="text" value={this.state.seed} placeholder="Seeds must be 81 characters long and may consist only of A-Z and 9." onChange={this.handleChange} />

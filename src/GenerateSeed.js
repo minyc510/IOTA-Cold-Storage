@@ -3,21 +3,57 @@ import './App.css';
 import ReactTooltip from '../node_modules/react-tooltip';
 import tipIcon from './toolTipIcon.png';
 
-var collectionPoints = 300; //Number of mouse-coordinates required
+var collectionPoints = 490; //Number of mouse-coordinates required
 
+class MouseBox extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { str: '' }
+    this.handleMouseMove = this.handleMouseMove.bind(this);
+  }
+
+  //Entropy Collection
+  handleMouseMove(e) {
+    if (this.props.collected < collectionPoints) {
+      let mouseEntropy = (e.screenX + e.screenY);
+      let tempStr = this.state.str + String.fromCharCode((e.screenX*e.screenY % 26)+65) + (e.screenX*e.screenY % 999);
+      this.setState({str: tempStr});
+      this.props.onMouseMove(this.props.collected+1, mouseEntropy);
+    }
+  }
+
+  render() {
+    return(
+      <div>
+        <h2 class="mouseBoxHeader">Entropy Collection Box [{Math.floor((this.props.collected / collectionPoints)*100)}%]&nbsp;
+          <a data-tip data-for='entropyTip'><img src={tipIcon} alt='?'width="20px"/></a>
+        </h2>
+
+        <ReactTooltip id='entropyTip' place="right" type="dark" effect="float">
+          <p>Your mouse movements inside the box are recorded, and </p>
+          <p>used to help randomize your seed.</p>
+        </ReactTooltip>
+
+        <div class="mouseBox" onMouseMove={this.handleMouseMove.bind(this)}>
+          <div class="mouseBoxText">{ this.state.str }</div>
+
+        </div>
+      </div>
+    );
+  }
+}
 
 
 export class GenerateSeed extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      x: 0,
-      y: 0,
       randArr: [],
       collected: 0,
       seed:''
     };
     this.handleClick = this.handleClick.bind(this);
+    this.mouseMove = this.mouseMove.bind(this);
   }
 
   //Generate Seed Button
@@ -45,15 +81,8 @@ export class GenerateSeed extends React.Component {
     this.setState( { seed: seed } );
   }
 
-  //Entropy Collection
-  handleMouseMove(e) {
-    if (this.state.collected < collectionPoints) {
-      let mouseEntropy = (e.screenX + e.screenY);
-      this.setState({ x: '('+e.screenX+')', y: '('+e.screenY+')', randArr: this.state.randArr.concat([mouseEntropy]) , collected: this.state.collected+1});
-    }
-    else {
-      this.setState({ x: '', y: '' });
-    }
+  mouseMove(newCollected, newRandElt) {
+    this.setState({ collected: newCollected, randArr: this.state.randArr.concat([newRandElt]) });
   }
 
   render() {
@@ -64,20 +93,8 @@ export class GenerateSeed extends React.Component {
 
     return (
       <div>
-        <h2 class="mouseBoxHeader">Entropy Collection Box [{Math.floor((this.state.collected / collectionPoints)*100)}%]&nbsp;
-          <a data-tip data-for='entropyTip'><img src={tipIcon} width="20px"/></a>
-        </h2>
 
-        <ReactTooltip id='entropyTip' place="right" type="dark" effect="float">
-          <p>Your mouse movements inside the box are recorded, and </p>
-          <p>used to help randomize your seed.</p>
-        </ReactTooltip>
-
-        <div class="mouseBox" onMouseMove={this.handleMouseMove.bind(this)}>
-          <div class="mouseBoxText1">{ this.state.x }</div>
-          <div class="mouseBoxText2">{ this.state.y }</div>
-        </div>
-
+        <MouseBox randArr={this.state.randArr} collected={this.state.collected} onMouseMove={this.mouseMove} />
         <button onClick={this.handleClick} class="button"> Generate New Seed </button>
         {seedImage}
 
