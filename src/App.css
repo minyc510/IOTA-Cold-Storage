@@ -2,7 +2,7 @@
 
 /* Paper Wallet */
 input[type=text], select {
-    width: 750px;
+    width: 900px;
     padding: 8px 8px 8px 8px;
     margin: 8px 8px;
     display: inline-block;
@@ -11,6 +11,9 @@ input[type=text], select {
     box-sizing: border-box;
 }
 
+.walletTemplate {
+  margin: 8px;
+}
 
 /* NavBar */
 ul {
@@ -79,4 +82,11 @@ h1,h2,h3,h4,h5,h6 {
     display: inline-block;
     font-size: 16px;
     margin: 8px;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    color: #fce5e5;
+    width: 100%;
 }

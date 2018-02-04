@@ -24,3 +24,15 @@ export class NavBar extends React.Component {
     );
   }
 }
+
+export function Footer() {
+  return (
+      <div class="footer">
+        <p>GitHub: minyc510</p>
+        <p>IOTA: VJRAJSNBWRJIUIBDXQZVESSTZJJFPYJYWRBIJNJKARBVJ9XYPNRKFLXKDU9KFATMNATLRVKYIUUJLNBVDRQNWMFERX</p>
+        <p>BTC: 18cx6rPftt1tqX736CewAp84X5bsceBAQL</p>
+        <p>ETH: 0x60d2080d9494134a537ab3f987d3c34a309b489c</p>
+      </div>
+
+  );
+}

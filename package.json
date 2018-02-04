@@ -8,6 +8,7 @@
     "more-entropy": "0.0.7",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-konva": "^1.6.6",
     "react-scripts": "1.1.0",
     "react-tooltip": "^3.4.0"
   },

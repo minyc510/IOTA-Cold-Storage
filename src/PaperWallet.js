@@ -1,7 +1,27 @@
 import React from 'react';
 import './App.css';
+import { Stage, Layer, Image } from "react-konva";
+import template from './template.png'
 
 var IOTA = require('../node_modules/iota.lib.js/lib/iota.js');
+
+class WalletTemplate extends React.Component {
+  state = { image: null };
+
+  componentDidMount() {
+    const image = new window.Image();
+    image.src = template;
+    image.onload = () => {
+      this.setState({ image: image });
+    };
+  }
+
+  render() {
+    return <Image image={this.state.image} />;
+  }
+}
+
+
 
 function WalletImage(props) {
   return (
@@ -9,6 +29,13 @@ function WalletImage(props) {
       <div>
         <h3>Wallet Address: {props.a}</h3>
         <h3>Private Seed: {props.s}</h3>
+        <div class="walletTemplate">
+          <Stage width={window.innerWidth} height={window.innerHeight}>
+            <Layer>
+              <WalletTemplate />
+            </Layer>
+          </Stage>
+        </div>
       </div>
 
   );
