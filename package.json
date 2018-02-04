@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "iota.lib.js": "^0.4.7",
+    "konva": "^1.7.6",
     "more-entropy": "0.0.7",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",

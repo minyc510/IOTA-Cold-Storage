@@ -3,15 +3,18 @@ import './App.css';
 
 var IOTA = require('../node_modules/iota.lib.js/lib/iota.js');
 
-
 function WalletImage(props) {
   return (
-    <div>
-      <h3>Wallet Address: {props.a}</h3>
-      <h3>Private Seed: {props.s}</h3>
-    </div>
+
+      <div>
+        <h3>Wallet Address: {props.a}</h3>
+        <h3>Private Seed: {props.s}</h3>
+      </div>
+
   );
 }
+
+
 
 export class PaperWallet extends React.Component {
   constructor(props) {
@@ -76,7 +79,7 @@ export class PaperWallet extends React.Component {
             <input type="text" value={this.state.seed} placeholder="Seeds must be 81 characters long and may consist only of A-Z and 9." onChange={this.handleChange} />
           </label>
 
-          <input class="button2" type="submit" value="Get Address" />
+          <input class="blueButton" type="submit" value="Get Address" />
           {image}
         </form>
       </div>

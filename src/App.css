@@ -1,16 +1,6 @@
-.button {
-    background-color: #4256f4;
-    border-radius: 8px;
-    border: none;
-    color: white;
-    padding: 12px 25px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 8px;
-}
 
+
+/* Paper Wallet */
 input[type=text], select {
     width: 750px;
     padding: 8px 8px 8px 8px;
@@ -21,88 +11,72 @@ input[type=text], select {
     box-sizing: border-box;
 }
 
-h1,h2,h3,h4,h5,h6 {
-    margin: 8px;
-    color: #ffffff;
-}
 
+/* NavBar */
 ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
 }
-
-li {
-    float: left;
-}
-
+li {  float: left;  }
 li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
 }
 
-li a:hover:not(.active) {
-    background-color: #111;
-}
+li a:hover:not(.active) { background-color: #111; }
 
-.active {
-    background-color: #4256f4;
-}
-.inactive {
-  background-color: #4256f4;
-}
+.active { background-color: #4256f4; }
+.inactive { background-color: #4256f4;  }
 
+/* FAQ */
 .infoBox {
     margin: 8px;
     width: 800px;
     color: #fce5e5;
 }
 
-.mouseBoxHeader {
-    text-align: center;
-}
+/* Generate Seed */
+.mouseBoxHeader { text-align: center; }
 
 .mouseBox {
     width: 900px;
     height: 250px;
     border: 2px solid black;
     margin: auto;
-
     background-color: #ffffff;
     background-image: url("iota-logo.png");
     background-size: 850px 275px;
     background-position: center center;
     background-repeat:   no-repeat;
-    opacity: 0.5;
+    opacity: 0.3;
     word-wrap: break-word;
 }
 
-.mouseBoxText {
-    opacity: 0.33;
-    font-size: 75%;
+.mouseBoxText { font-size: 75%; }
 
+/* Other */
+body {  background-image: url("bluebackground.jpg");  }
 
+h1,h2,h3,h4,h5,h6 {
+    margin: 8px;
+    color: #ffffff;
 }
 
-.mouseBoxText1 {
-    text-align: left;
-    font-size: 500%;
-    vertical-align: middle;
-    opacity: 0.2;
-}
-
-.mouseBoxText2 {
-    text-align: right;
-    font-size: 500%;
-    vertical-align: middle;
-    opacity: 0.2;
-}
-
-body {
-   background-image: url("bluebackground.jpg");
+.blueButton {
+    background-color: #4256f4;
+    border-radius: 8px;
+    border: none;
+    color: white;
+    padding: 12px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 8px;
 }
