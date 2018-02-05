@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
-import { Stage, Layer, Image } from "react-konva";
+import { Stage, Layer, Image, Text } from "react-konva";
+import Konva from 'konva';
 import template from './template.png'
 
 var IOTA = require('../node_modules/iota.lib.js/lib/iota.js');
@@ -23,22 +24,50 @@ class WalletTemplate extends React.Component {
 
 
 
-function WalletImage(props) {
-  return (
+class WalletImage extends React.Component {
+  constructor(props) {
+    super(props);
 
-      <div>
-        <h3>Wallet Address: {props.a}</h3>
-        <h3>Private Seed: {props.s}</h3>
-        <div class="walletTemplate">
-          <Stage width={window.innerWidth} height={window.innerHeight}>
-            <Layer>
-              <WalletTemplate />
-            </Layer>
-          </Stage>
+    this.state = { address: props.a, seed: props.s}
+  }
+
+  render() {
+
+    var address = <Text
+      text={this.state.address}
+      fontSize="13"
+      fontFamily="Sans"
+      x="147"
+      y="60"
+    />
+
+    var seed = <Text
+    text={this.state.seed}
+    fontSize="14"
+    fontFamily="Sans"
+    x="23"
+    y="240"
+    />
+
+    return (
+
+        <div>
+          <h3>Wallet Address: {this.state.address}</h3>
+          <div class="walletTemplate">
+            <Stage width={window.innerWidth} height={window.innerHeight}>
+              <Layer>
+                <WalletTemplate />
+                {address}
+                {seed}
+              </Layer>
+
+            </Stage>
+          </div>
         </div>
-      </div>
 
-  );
+    );
+  }
+
 }
 
 
