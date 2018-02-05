@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import { Stage, Layer, Image, Text } from "react-konva";
-import Konva from 'konva';
 import template from './template.png'
 
 var IOTA = require('../node_modules/iota.lib.js/lib/iota.js');
@@ -37,16 +36,16 @@ class WalletImage extends React.Component {
       text={this.state.address}
       fontSize="13"
       fontFamily="Sans"
-      x="147"
-      y="60"
+      x="352"
+      y="69"
     />
 
     var seed = <Text
     text={this.state.seed}
     fontSize="14"
     fontFamily="Sans"
-    x="23"
-    y="240"
+    x="352"
+    y="135"
     />
 
     return (

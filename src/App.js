@@ -4,7 +4,6 @@ import { NavBar } from './NavBar.js'
 import { PaperWallet } from './PaperWallet.js'
 import { GenerateSeed } from './GenerateSeed.js'
 import { FAQ } from './FAQ.js'
-import { Footer } from './NavBar.js'
 
 class App extends React.Component {
   constructor(props) {
