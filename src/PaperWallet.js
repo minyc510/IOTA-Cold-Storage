@@ -21,19 +21,14 @@ class WalletTemplate extends React.Component {
   }
 }
 
-
-
 class WalletImage extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = { address: props.a, seed: props.s}
   }
 
   render() {
-
     var address = <Text
-      text={this.state.address}
+      text={this.props.a}
       fontSize="13"
       fontFamily="Sans"
       x="352"
@@ -41,7 +36,7 @@ class WalletImage extends React.Component {
     />
 
     var seed = <Text
-    text={this.state.seed}
+    text={this.props.s}
     fontSize="14"
     fontFamily="Sans"
     x="352"
@@ -49,9 +44,9 @@ class WalletImage extends React.Component {
     />
 
     return (
-
         <div>
-          <h3>Wallet Address: {this.state.address}</h3>
+          <h3>Wallet Address: {this.props.a}</h3>
+          <br></br>
           <div class="walletTemplate">
             <Stage width={window.innerWidth} height={window.innerHeight}>
               <Layer>
@@ -59,27 +54,25 @@ class WalletImage extends React.Component {
                 {address}
                 {seed}
               </Layer>
-
             </Stage>
           </div>
         </div>
-
     );
   }
-
 }
-
-
 
 export class PaperWallet extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {seed: '', address: ''};
+    this.state = { seed: '', address: '', security: 2 };
     this.handleChange = this.handleChange.bind(this);
+    this.handleSecurityChange = this.handleSecurityChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(event) { this.setState({seed: event.target.value}); }
+  handleChange(event) { this.setState({ seed: event.target.value }); }
+
+  handleSecurityChange(event) { this.setState({ security: parseInt(event.target.value, 10) }); }
 
   handleSubmit(event) {
     // Validate seed-input
@@ -103,7 +96,7 @@ export class PaperWallet extends React.Component {
 
       // Options is a parameter for getNewAddress()
       var options = {}
-      options.security = 2;
+      options.security = this.state.security;
       options.deterministic = "off";
       options.checksum = true;
       options.total = 1;
@@ -129,9 +122,18 @@ export class PaperWallet extends React.Component {
     return (
       <div>
         <h2>Input a private seed to generate the corresponding address.</h2 >
+        <label>
+          <span class="selectText">Security Level</span>
+          <select onChange={this.handleSecurityChange}>
+            <option value='1'>1</option>
+            <option value='2' selected="selected">2</option>
+            <option value='3'>3</option>
+          </select>
+        </label>
+
         <form onSubmit={this.handleSubmit}>
           <label>
-            <input type="text" value={this.state.seed} placeholder="Seeds must be 81 characters long and may consist only of A-Z and 9." onChange={this.handleChange} />
+            <input type="text" value={this.state.seed} placeholder=" Seeds must be 81 characters long and may consist only of A-Z and 9." onChange={this.handleChange} />
           </label>
 
           <input class="blueButton" type="submit" value="Get Address" />

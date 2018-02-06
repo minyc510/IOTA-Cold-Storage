@@ -1,9 +1,10 @@
 
 
 /* Paper Wallet */
-input[type=text], select {
+input[type=text] {
     width: 1000px;
-    padding: 8px 8px 8px 8px;
+    height: 35px;
+    paddingprint: 8px 8px 8px 8px;
     margin: 8px 8px;
     display: inline-block;
     border: 1px solid #ccc;
@@ -12,7 +13,14 @@ input[type=text], select {
 }
 
 .walletTemplate {
-  margin: 8px;
+  margin: 0 auto;
+  width: 80%;
+}
+
+.selectText {
+  margin:8px;
+  color: #ffffff;
+  font-weight: bold;
 }
 
 /* NavBar */

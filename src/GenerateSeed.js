@@ -30,8 +30,8 @@ class MouseBox extends React.Component {
         </h2>
 
         <ReactTooltip id='entropyTip' place="right" type="dark" effect="float">
-          <p>Your mouse movements inside the box are recorded, and </p>
-          <p>used to help randomize your seed.</p>
+          <p>Your mouse movements inside the box are recorded, and <br></br>
+          used to help randomize your seed.</p>
         </ReactTooltip>
 
         <div class="mouseBox" onMouseMove={this.handleMouseMove.bind(this)}>
