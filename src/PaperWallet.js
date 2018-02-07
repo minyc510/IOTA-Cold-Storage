@@ -21,14 +21,9 @@ class WalletTemplate extends React.Component {
   }
 }
 
-class WalletImage extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
+function WalletImage(props) {
     var address = <Text
-      text={this.props.a}
+      text={props.a}
       fontSize="13"
       fontFamily="Sans"
       x="352"
@@ -36,7 +31,7 @@ class WalletImage extends React.Component {
     />
 
     var seed = <Text
-    text={this.props.s}
+    text={props.s}
     fontSize="14"
     fontFamily="Sans"
     x="352"
@@ -45,7 +40,7 @@ class WalletImage extends React.Component {
 
     return (
         <div>
-          <h3>Wallet Address: {this.props.a}</h3>
+          <h3>Wallet Address: {props.a}</h3>
           <br></br>
           <div class="walletTemplate">
             <Stage width={window.innerWidth} height={window.innerHeight}>
@@ -58,21 +53,23 @@ class WalletImage extends React.Component {
           </div>
         </div>
     );
-  }
 }
 
 export class PaperWallet extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { seed: '', address: '', security: 2 };
+    this.state = { seed: '', address: '', security: 2, checksum: true };
     this.handleChange = this.handleChange.bind(this);
     this.handleSecurityChange = this.handleSecurityChange.bind(this);
+    this.handleChecksum = this.handleChecksum.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) { this.setState({ seed: event.target.value }); }
 
   handleSecurityChange(event) { this.setState({ security: parseInt(event.target.value, 10) }); }
+
+  handleChecksum(event) { this.setState({ checksum: (event.target.value === 'true' ? true : false) }); }
 
   handleSubmit(event) {
     // Validate seed-input
@@ -98,7 +95,7 @@ export class PaperWallet extends React.Component {
       var options = {}
       options.security = this.state.security;
       options.deterministic = "off";
-      options.checksum = true;
+      options.checksum = this.state.checksum;
       options.total = 1;
 
       // Generate Address
@@ -128,6 +125,13 @@ export class PaperWallet extends React.Component {
             <option value='1'>1</option>
             <option value='2' selected="selected">2</option>
             <option value='3'>3</option>
+          </select>
+        </label>
+        <label>
+          <span class="selectText">Checksum</span>
+          <select onChange={this.handleChecksum}>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
           </select>
         </label>
 
