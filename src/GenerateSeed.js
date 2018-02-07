@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import ReactTooltip from '../node_modules/react-tooltip';
-import tipIcon from './toolTipIcon.png';
+import tipIcon from './images/toolTipIcon.png';
 
 var collectionPoints = 490; //Number of mouse-coordinates required
 

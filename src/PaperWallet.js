@@ -1,13 +1,16 @@
 import React from 'react';
 import './App.css';
 import { Stage, Layer, Image, Text } from "react-konva";
-import template from './template.png'
+import ToggleButton from 'react-toggle-button';
+import template from './images/template.png';
 
 var IOTA = require('../node_modules/iota.lib.js/lib/iota.js');
 
 class WalletTemplate extends React.Component {
-  state = { image: null };
-
+  constructor(props) {
+    super(props);
+    this.state = { image: null };
+  }
   componentDidMount() {
     const image = new window.Image();
     image.src = template;
@@ -15,27 +18,20 @@ class WalletTemplate extends React.Component {
       this.setState({ image: image });
     };
   }
-
-  render() {
-    return <Image image={this.state.image} />;
-  }
+  render() { return <Image image={this.state.image} />; }
 }
 
 function WalletImage(props) {
     var address = <Text
-      text={props.a}
-      fontSize="13"
-      fontFamily="Sans"
+      text={props.a} fontSize="13" fontFamily="Sans"
       x="352"
       y="69"
     />
 
     var seed = <Text
-    text={props.s}
-    fontSize="14"
-    fontFamily="Sans"
-    x="352"
-    y="135"
+      text={props.s} fontSize="14" fontFamily="Sans"
+      x="352"
+      y="135"
     />
 
     return (
@@ -55,21 +51,60 @@ function WalletImage(props) {
     );
 }
 
+class AdvancedOptions extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleSecurityChange = this.handleSecurityChange.bind(this);
+    this.handleChecksumChange = this.handleChecksumChange.bind(this);
+  }
+
+  handleSecurityChange(event) {
+    this.props.changeSecurity( parseInt(event.target.value, 10) );
+  }
+
+  handleChecksumChange(event) {
+    this.props.changeChecksum( event.target.value === 'true' ? true : false );
+  }
+
+  render() {
+    return (
+      <div>
+        <label>
+          <span class="selectText">Security Level</span>
+          <select onChange={this.handleSecurityChange}>
+            <option value='1'>1</option>
+            <option value='2' selected="selected">2</option>
+            <option value='3'>3</option>
+          </select>
+        </label>
+
+        <label>
+          <span class="selectText">Checksum</span>
+          <select onChange={this.handleChecksumChange}>
+            <option value='true'>true</option>
+            <option value='false'>false</option>
+          </select>
+        </label>
+      </div>
+    );
+  }
+}
+
 export class PaperWallet extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { seed: '', address: '', security: 2, checksum: true };
+    this.state = { seed: '', address: '', advanced: false, security: 2, checksum: true };
     this.handleChange = this.handleChange.bind(this);
-    this.handleSecurityChange = this.handleSecurityChange.bind(this);
-    this.handleChecksum = this.handleChecksum.bind(this);
+    this.changeSecurity = this.changeSecurity.bind(this);
+    this.changeChecksum = this.changeChecksum.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) { this.setState({ seed: event.target.value }); }
 
-  handleSecurityChange(event) { this.setState({ security: parseInt(event.target.value, 10) }); }
+  changeSecurity(secLevel) { this.setState({ security: secLevel }); }
 
-  handleChecksum(event) { this.setState({ checksum: (event.target.value === 'true' ? true : false) }); }
+  changeChecksum(checkSumBool) { this.setState({ checksum: checkSumBool }); }
 
   handleSubmit(event) {
     // Validate seed-input
@@ -112,29 +147,31 @@ export class PaperWallet extends React.Component {
   }
 
   render() {
+    const borderRadiusStyle = { borderRadius: 2 }
+    let advOpt = null;
     let image = null;
-    if (this.state.address !== '') {
-      image = <WalletImage a={this.state.address} s={this.state.seed} />;
-    }
+    if (this.state.address !== '') { image = <WalletImage a={this.state.address} s={this.state.seed} />; }
+    if (this.state.advanced) { advOpt = <AdvancedOptions changeSecurity={this.changeSecurity} changeChecksum={this.changeChecksum}/>; }
+
     return (
       <div>
-        <h2>Input a private seed to generate the corresponding address.</h2 >
-        <label>
-          <span class="selectText">Security Level</span>
-          <select onChange={this.handleSecurityChange}>
-            <option value='1'>1</option>
-            <option value='2' selected="selected">2</option>
-            <option value='3'>3</option>
-          </select>
-        </label>
-        <label>
-          <span class="selectText">Checksum</span>
-          <select onChange={this.handleChecksum}>
-            <option value='true'>true</option>
-            <option value='false'>false</option>
-          </select>
-        </label>
+        <h2>Paper Wallet Generator</h2>
+        <div class="inline">
+          <span class="selectText">Advanced Options</span>
+        </div>
 
+        <ToggleButton
+          value={ this.state.advanced || false }
+          thumbStyle={borderRadiusStyle}
+          trackStyle={borderRadiusStyle}
+          onToggle={(value) => {
+            this.setState({
+              advanced: !this.state.advanced,
+            })
+          }} /> <br></br>
+        {/*Advanced Options*/}
+        {advOpt}
+        {/*Seed Submit*/}
         <form onSubmit={this.handleSubmit}>
           <label>
             <input type="text" value={this.state.seed} placeholder=" Seeds must be 81 characters long and may consist only of A-Z and 9." onChange={this.handleChange} />

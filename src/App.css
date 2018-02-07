@@ -23,6 +23,10 @@ input[type=text] {
   font-weight: bold;
 }
 
+.inline {
+  float:left;
+}
+
 /* NavBar */
 ul {
   list-style-type: none;
@@ -61,7 +65,7 @@ li a:hover:not(.active) { background-color: #111; }
     border: 2px solid black;
     margin: auto;
     background-color: #ffffff;
-    background-image: url("iota-logo.png");
+    background-image: url("./images/iota-logo.png");
     background-size: 850px 275px;
     background-position: center center;
     background-repeat:   no-repeat;
@@ -72,7 +76,7 @@ li a:hover:not(.active) { background-color: #111; }
 .mouseBoxText { font-size: 75%; }
 
 /* Other */
-body {  background-image: url("bluebackground.jpg");  }
+body {  background-image: url("./images/bluebackground.jpg");  }
 
 h1,h2,h3,h4,h5,h6 {
     margin: 8px;
