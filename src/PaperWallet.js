@@ -3,8 +3,9 @@ import './App.css';
 import { Stage, Layer, Image, Text } from "react-konva";
 import ToggleButton from 'react-toggle-button';
 import template from './images/template.png';
-
-var IOTA = require('../node_modules/iota.lib.js/lib/iota.js');
+import ReactTooltip from '../node_modules/react-tooltip';
+import tipIcon from './images/toolTipIcon.png';
+import IOTA from '../node_modules/iota.lib.js/lib/iota.js'
 
 class WalletTemplate extends React.Component {
   constructor(props) {
@@ -77,6 +78,7 @@ class AdvancedOptions extends React.Component {
             <option value='3'>3</option>
           </select>
         </label>
+        <br></br><br></br>
 
         <label>
           <span class="selectText">Checksum</span>
@@ -147,28 +149,30 @@ export class PaperWallet extends React.Component {
   }
 
   render() {
-    const borderRadiusStyle = { borderRadius: 2 }
-    let advOpt = null;
     let image = null;
+    let advOpt = null;
     if (this.state.address !== '') { image = <WalletImage a={this.state.address} s={this.state.seed} />; }
     if (this.state.advanced) { advOpt = <AdvancedOptions changeSecurity={this.changeSecurity} changeChecksum={this.changeChecksum}/>; }
 
     return (
       <div>
-        <h2>Paper Wallet Generator</h2>
+        <h1>Paper Wallet Generator</h1>
         <div class="inline">
           <span class="selectText">Advanced Options</span>
         </div>
 
         <ToggleButton
-          value={ this.state.advanced || false }
-          thumbStyle={borderRadiusStyle}
-          trackStyle={borderRadiusStyle}
+          value={ this.state.advanced }
+          activeLabel="ON"
+          inactiveLabel="OFF"
           onToggle={(value) => {
             this.setState({
               advanced: !this.state.advanced,
             })
-          }} /> <br></br>
+          }}
+           />
+
+        <br></br>
         {/*Advanced Options*/}
         {advOpt}
         {/*Seed Submit*/}
@@ -176,7 +180,7 @@ export class PaperWallet extends React.Component {
           <label>
             <input type="text" value={this.state.seed} placeholder=" Seeds must be 81 characters long and may consist only of A-Z and 9." onChange={this.handleChange} />
           </label>
-
+          <br></br>
           <input class="blueButton" type="submit" value="Get Address" />
           {image}
         </form>

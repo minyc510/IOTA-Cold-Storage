@@ -19,8 +19,14 @@ input[type=text] {
 
 .selectText {
   margin:8px;
-  color: #ffffff;
+  color: #dcdee2;
+  font-size: 20px;
   font-weight: bold;
+}
+
+select {
+  height:30px;
+
 }
 
 .inline {
@@ -35,12 +41,15 @@ ul {
   overflow: hidden;
   background-color: #333;
 }
-li {  float: left;  }
+li {
+  float: left;
+}
 li a {
   display: block;
   color: white;
   text-align: center;
   padding: 14px 16px;
+
   text-decoration: none;
 }
 
@@ -76,11 +85,20 @@ li a:hover:not(.active) { background-color: #111; }
 .mouseBoxText { font-size: 75%; }
 
 /* Other */
-body {  background-image: url("./images/bluebackground.jpg");  }
+body {
+  /*
+  background-image: url("./images/grey.png");
+  */
+  background-image: url("./images/earth.jpg");
+
+  background-repeat: no-repeat;
+  background-size:cover;
+}
 
 h1,h2,h3,h4,h5,h6 {
     margin: 8px;
-    color: #ffffff;
+    color: #dcdee2;
+    margin-top: 0;
 }
 
 .blueButton {
@@ -94,6 +112,17 @@ h1,h2,h3,h4,h5,h6 {
     display: inline-block;
     font-size: 16px;
     margin: 8px;
+}
+
+.main {
+    width: 70%;
+    height: 900px;
+    margin: 0 auto;
+    background-image: url("./images/divbg.jpg");
+    border-style: dotted;
+    border-color: white;
+    border-top: none;
+    border-bottom: none;
 }
 
 .footer {

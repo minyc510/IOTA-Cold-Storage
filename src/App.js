@@ -24,7 +24,10 @@ class App extends React.Component {
     return (
       <div>
         <NavBar currPage={this.state.currPage} onClick={this.changePage}/>
+        <div class="main">
+        <br></br>
         {main}
+        </div>
       </div>
     );
   }
