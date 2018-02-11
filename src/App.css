@@ -13,14 +13,20 @@ input[type=text] {
 }
 
 .walletTemplate {
-  margin: 0 auto;
   width: 80%;
 }
 
+.advOptToggle {
+  margin:8px;
+  font-size: 20px;
+  color: #dcdee2;
+  font-weight: bold;
+}
+
+
 .selectText {
   margin:8px;
-  color: #dcdee2;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: bold;
 }
 
@@ -31,6 +37,17 @@ select {
 
 .inline {
   float:left;
+}
+
+.advancedOptions {
+  padding-top: 8px;
+  width: 40%;
+  height: 100px;
+  margin-left: 8px;
+  border: 1px solid black;
+  border-radius: 4px;
+  background-color: #609dff;
+  word-wrap: break-word;
 }
 
 /* NavBar */
@@ -101,7 +118,7 @@ li a:hover:not(.active) { background-color: #111; }
 }
 
 .seedBox {
-    width: 80%;
+    width: 90%;
     height: 50px;
     border: 2px dashed black;
     border-radius: 8px;
@@ -109,11 +126,9 @@ li a:hover:not(.active) { background-color: #111; }
     opacity: 0.8;
     background-color: #ffffff;
     word-wrap: break-word;
-}
-
-.seedText {
-
-
+    text-align: center;
+    vertical-align: middle;
+    line-height: 50px;
 }
 /* Other */
 body {

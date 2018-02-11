@@ -3,8 +3,6 @@ import './App.css';
 import { Stage, Layer, Image, Text } from "react-konva";
 import ToggleButton from 'react-toggle-button';
 import template from './images/template.png';
-import ReactTooltip from '../node_modules/react-tooltip';
-import tipIcon from './images/toolTipIcon.png';
 import IOTA from '../node_modules/iota.lib.js/lib/iota.js'
 
 class WalletTemplate extends React.Component {
@@ -37,7 +35,7 @@ function WalletImage(props) {
 
     return (
         <div>
-          <h3>Wallet Address: {props.a}</h3>
+          <h5>Wallet Address: {props.a}</h5>
           <br></br>
           <div class="walletTemplate">
             <Stage width={window.innerWidth} height={window.innerHeight}>
@@ -69,7 +67,7 @@ class AdvancedOptions extends React.Component {
 
   render() {
     return (
-      <div>
+      <div class="advancedOptions">
         <label>
           <span class="selectText">Security Level</span>
           <select onChange={this.handleSecurityChange}>
@@ -87,6 +85,7 @@ class AdvancedOptions extends React.Component {
             <option value='false'>false</option>
           </select>
         </label>
+        <br></br>
       </div>
     );
   }
@@ -158,7 +157,7 @@ export class PaperWallet extends React.Component {
       <div>
         <h1>Paper Wallet Generator</h1>
         <div class="inline">
-          <span class="selectText">Advanced Options</span>
+          <span class="advOptToggle">Advanced Options</span>
         </div>
 
         <ToggleButton

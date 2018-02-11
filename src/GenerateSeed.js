@@ -86,22 +86,14 @@ export class GenerateSeed extends React.Component {
   }
 
   render() {
-    let seedImage = null;
-    if (this.state.seed !== '') {
-      seedImage = <h3>Seed: {this.state.seed}</h3>
-    }
-
     return (
       <div>
-
         <MouseBox randArr={this.state.randArr} collected={this.state.collected} onMouseMove={this.mouseMove} />
         <button onClick={this.handleClick} class="gsButton"> Generate Seed </button>
         <br></br><br></br>
         <div class="seedBox">
-        {this.state.seed}
-
+          {this.state.seed}
         </div>
-
       </div>
     );
   }
