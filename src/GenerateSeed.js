@@ -95,8 +95,12 @@ export class GenerateSeed extends React.Component {
       <div>
 
         <MouseBox randArr={this.state.randArr} collected={this.state.collected} onMouseMove={this.mouseMove} />
-        <button onClick={this.handleClick} class="blueButton"> Generate New Seed </button>
-        {seedImage}
+        <button onClick={this.handleClick} class="gsButton"> Generate Seed </button>
+        <br></br><br></br>
+        <div class="seedBox">
+        {this.state.seed}
+
+        </div>
 
       </div>
     );
