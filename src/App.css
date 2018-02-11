@@ -101,22 +101,6 @@ li a:hover:not(.active) { background-color: #111; }
 
 .mouseBoxText { font-size: 70%; }
 
-.gsButton {
-    background-color: #4256f4;
-    border-radius: 8px;
-    border: 1px solid black;
-    color: white;
-    padding: 12px 25px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-
-    margin-top: 20px;
-    margin-left: 40%;
-
-}
-
 .seedBox {
     width: 90%;
     height: 50px;
@@ -139,11 +123,12 @@ body {
 
   background-repeat: no-repeat;
   background-size:cover;
+
 }
 
 h1,h2,h3,h4,h5,h6 {
     margin: 8px;
-    color: #dcdee2;
+    color: #ffffff;
     margin-top: 0;
 }
 
@@ -160,15 +145,12 @@ h1,h2,h3,h4,h5,h6 {
     margin: 8px;
 }
 
-
-
-
 .main {
     width: 70%;
     height: 900px;
     margin: 0 auto;
-    background-image: url("./images/divbg.jpg");
-    border-style: dotted;
+    background-color: #5044ff;
+    border-style: solid;
     border-color: white;
     border-top: none;
     border-bottom: none;

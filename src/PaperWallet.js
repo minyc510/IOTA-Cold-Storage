@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import { Stage, Layer, Image, Text } from "react-konva";
 import ToggleButton from 'react-toggle-button';
-import template from './images/template.png';
+import template from './images/template.png';// XXX: 
 import IOTA from '../node_modules/iota.lib.js/lib/iota.js'
 
 class WalletTemplate extends React.Component {

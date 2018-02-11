@@ -50,15 +50,11 @@ export class GenerateSeed extends React.Component {
     this.state = {
       randArr: [],
       collected: 0,
-      seed:''
     };
-    this.handleClick = this.handleClick.bind(this);
     this.mouseMove = this.mouseMove.bind(this);
   }
 
-  //Generate Seed Button
-  handleClick() {
-    if (this.state.collected < collectionPoints) { alert('Collect more entropy first! Hover your mouse around in the box.'); return; }
+  generateSeed() {
     //Use plain javascript to create pseudo-random seed
     let psuedoRandSeed = "";
     let possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZ9";
@@ -77,8 +73,7 @@ export class GenerateSeed extends React.Component {
       if (asciiVal === 91) { seed += '9' }
       else { seed += String.fromCharCode(asciiVal); }
     }
-
-    this.setState( { seed: seed } );
+    return seed;
   }
 
   mouseMove(newCollected, newRandElt) {
@@ -86,13 +81,14 @@ export class GenerateSeed extends React.Component {
   }
 
   render() {
+    let seed = '';
+    if (this.state.collected === collectionPoints) { seed = this.generateSeed(); }
     return (
       <div>
         <MouseBox randArr={this.state.randArr} collected={this.state.collected} onMouseMove={this.mouseMove} />
-        <button onClick={this.handleClick} class="gsButton"> Generate Seed </button>
         <br></br><br></br>
         <div class="seedBox">
-          {this.state.seed}
+          {seed}
         </div>
       </div>
     );
