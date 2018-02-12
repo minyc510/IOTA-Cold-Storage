@@ -25,9 +25,9 @@ class MouseBox extends React.Component {
   render() {
     return(
       <div>
-        <h2 class="mouseBoxHeader">Entropy Collection Box [{Math.floor((this.props.collected / collectionPoints)*100)}%]&nbsp;
+        <h1 class="centerHeader">Entropy Collection {Math.floor((this.props.collected / collectionPoints)*100)}%&nbsp;
           <a data-tip data-for='entropyTip'><img src={tipIcon} alt='?'width="20px"/></a>
-        </h2>
+        </h1>
 
         <ReactTooltip id='entropyTip' place="right" type="dark" effect="float">
           <p>Your mouse movements inside the box are recorded, and <br></br>

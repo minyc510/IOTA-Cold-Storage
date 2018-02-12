@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import { Stage, Layer, Image, Text } from "react-konva";
 import ToggleButton from 'react-toggle-button';
-import template from './images/template.png';// XXX: 
+import template from './images/plainTemplate.png';//
 import IOTA from '../node_modules/iota.lib.js/lib/iota.js'
 
 class WalletTemplate extends React.Component {
@@ -22,15 +22,15 @@ class WalletTemplate extends React.Component {
 
 function WalletImage(props) {
     var address = <Text
-      text={props.a} fontSize="13" fontFamily="Sans"
-      x="352"
-      y="69"
+      text={props.a} fontSize="15" fontFamily="Courier New"
+      x="14"
+      y="55"
     />
 
     var seed = <Text
-      text={props.s} fontSize="14" fontFamily="Sans"
-      x="352"
-      y="135"
+      text={props.s} fontSize="16" fontFamily="Courier New"
+      x="15"
+      y="105"
     />
 
     return (
@@ -155,9 +155,9 @@ export class PaperWallet extends React.Component {
 
     return (
       <div>
-        <h1>Paper Wallet Generator</h1>
+        <h1 class="centerHeader">Paper Wallet Generator</h1>
         <div class="inline">
-          <span class="advOptToggle">Advanced Options</span>
+          <h3>Advanced Options</h3>
         </div>
 
         <ToggleButton

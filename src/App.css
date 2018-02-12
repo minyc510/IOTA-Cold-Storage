@@ -13,16 +13,9 @@ input[type=text] {
 }
 
 .walletTemplate {
-  width: 80%;
+  width: 50%;
+  margin-left: 4%;
 }
-
-.advOptToggle {
-  margin:8px;
-  font-size: 20px;
-  color: #dcdee2;
-  font-weight: bold;
-}
-
 
 .selectText {
   margin:8px;
@@ -83,7 +76,7 @@ li a:hover:not(.active) { background-color: #111; }
 }
 
 /* Generate Seed */
-.mouseBoxHeader { text-align: center; }
+.centerHeader { text-align: center; }
 
 .mouseBox {
     width: 80%;
@@ -116,13 +109,10 @@ li a:hover:not(.active) { background-color: #111; }
 }
 /* Other */
 body {
-  /*
-  background-image: url("./images/grey.png");
-  */
-  background-image: url("./images/earth.jpg");
-
+  background-image: url("./images/blue.jpg");
   background-repeat: no-repeat;
   background-size:cover;
+    font-family: Lato;
 
 }
 
@@ -130,10 +120,12 @@ h1,h2,h3,h4,h5,h6 {
     margin: 8px;
     color: #ffffff;
     margin-top: 0;
+
 }
 
 .blueButton {
     background-color: #4256f4;
+
     border-radius: 8px;
     border: none;
     color: white;
@@ -149,7 +141,8 @@ h1,h2,h3,h4,h5,h6 {
     width: 70%;
     height: 900px;
     margin: 0 auto;
-    background-color: #5044ff;
+    background-image: url("./images/divbg.jpg");
+
     border-style: solid;
     border-color: white;
     border-top: none;
