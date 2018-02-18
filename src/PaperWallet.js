@@ -21,6 +21,19 @@ class WalletTemplate extends React.Component {
 }
 
 function WalletImage(props) {
+
+    var pub = <Text
+      text="Public Wallet Address:" fontSize="18" fontFamily="Courier New"
+      x="15"
+      y="35"
+    />
+
+    var priv = <Text
+      text="Private Seed:" fontSize="18" fontFamily="Courier New"
+      x="15"
+      y="85"
+    />
+
     var address = <Text
       text={props.a} fontSize="15" fontFamily="Courier New"
       x="14"
@@ -28,8 +41,8 @@ function WalletImage(props) {
     />
 
     var seed = <Text
-      text={props.s} fontSize="16" fontFamily="Courier New"
-      x="15"
+      text={props.s} fontSize="15" fontFamily="Courier New"
+      x="14"
       y="105"
     />
 
@@ -41,6 +54,8 @@ function WalletImage(props) {
             <Stage width={window.innerWidth} height={window.innerHeight}>
               <Layer>
                 <WalletTemplate />
+                {pub}
+                {priv}
                 {address}
                 {seed}
               </Layer>

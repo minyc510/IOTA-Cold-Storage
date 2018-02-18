@@ -7,6 +7,7 @@
     "konva": "^1.7.6",
     "more-entropy": "0.0.7",
     "react": "^16.2.0",
+    "react-bootstrap": "^0.32.1",
     "react-dom": "^16.2.0",
     "react-konva": "^1.6.6",
     "react-scripts": "1.1.0",

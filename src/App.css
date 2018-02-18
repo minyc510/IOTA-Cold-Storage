@@ -1,4 +1,9 @@
+/* Opener */
+.centerDiv {
+  text-align: center;
 
+
+}
 
 /* Paper Wallet */
 input[type=text] {
@@ -14,7 +19,7 @@ input[type=text] {
 
 .walletTemplate {
   width: 50%;
-  margin-left: 4%;
+  margin-left: 6%;
 }
 
 .selectText {
@@ -39,7 +44,7 @@ select {
   margin-left: 8px;
   border: 1px solid black;
   border-radius: 4px;
-  background-color: #609dff;
+  background-color: #4FC3F7;
   word-wrap: break-word;
 }
 
@@ -49,7 +54,8 @@ ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333;
+  height: 60px;
+  background-color: #03A9F4;
 }
 li {
   float: left;
@@ -57,26 +63,27 @@ li {
 li a {
   display: block;
   color: white;
+  height: 60px;
   text-align: center;
-  padding: 14px 16px;
-
+  padding: 20px 24px;
   text-decoration: none;
 }
 
-li a:hover:not(.active) { background-color: #111; }
+li a:hover:not(.active) { background-color: #B3E5FC; }
 
 .active { background-color: #4256f4; }
-.inactive { background-color: #4256f4;  }
+.inactive { background-color: #0277BD;  }
 
 /* FAQ */
 .infoBox {
     margin: 8px;
     width: 800px;
-    color: #fce5e5;
 }
 
 /* Generate Seed */
 .centerHeader { text-align: center; }
+
+.center { text-align: center; }
 
 .mouseBox {
     width: 80%;
@@ -109,18 +116,13 @@ li a:hover:not(.active) { background-color: #111; }
 }
 /* Other */
 body {
-  background-image: url("./images/blue.jpg");
-  background-repeat: no-repeat;
-  background-size:cover;
-    font-family: Lato;
-
+  font-family: Lato;
+  background-color: #E1F5FE;
 }
 
 h1,h2,h3,h4,h5,h6 {
     margin: 8px;
-    color: #ffffff;
-    margin-top: 0;
-
+    margin-top: 5;
 }
 
 .blueButton {
@@ -138,20 +140,18 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .main {
+
     width: 70%;
-    height: 900px;
-    margin: 0 auto;
-    background-image: url("./images/divbg.jpg");
+    height: 700px;
+    margin-top: 2%;
+    margin-bottom:2%;
+    margin-left:auto;
+    margin-right:auto;
+    padding-left: 20px;
+    background-color: #81D4FA;
 
     border-style: solid;
-    border-color: white;
-    border-top: none;
-    border-bottom: none;
-}
+    border-color: #01579B;
+    border-radius: 5px;
 
-.footer {
-    position: fixed;
-    bottom: 0;
-    color: #fce5e5;
-    width: 100%;
 }
