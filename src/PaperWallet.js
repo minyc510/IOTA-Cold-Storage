@@ -2,8 +2,62 @@ import React from 'react';
 import './App.css';
 import { Stage, Layer, Image, Text } from "react-konva";
 import ToggleButton from 'react-toggle-button';
-import template from './images/plainTemplate.png';//
-import IOTA from '../node_modules/iota.lib.js/lib/iota.js'
+import template from './images/plainTemplate.png';
+import IOTA from '../node_modules/iota.lib.js/lib/iota.js';
+import { FormGroup, FormControl } from 'react-bootstrap';
+
+class SeedForm extends React.Component {
+  constructor(props, context) {
+    super(props, context);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+    this.state = { value: '' };
+  }
+
+  getValidationState() {
+    const seed = this.state.value;
+    const length = this.state.value.length;
+
+    if (length === 0) return '';
+    if (seed.length !== 81) { return 'error'; }
+    for (var i=0; i < 81; i++) {
+      var currAscii = seed.charCodeAt(i);
+      if ((currAscii < 65 && currAscii !== 57) || (currAscii > 90 && currAscii !== 57)) {
+        return 'error';
+      }
+    }
+    return 'success';
+  }
+
+  handleChange(e) {
+    this.setState({ value: e.target.value });
+  }
+
+  handleClick(event) {
+    this.props.submit(this.state.value);
+    event.preventDefault();
+  }
+
+  render() {
+    return (
+      <form onSubmit={this.handleClick}>
+        <FormGroup
+          controlId="formBasicText"
+          validationState={this.getValidationState()}
+        >
+          <FormControl
+            type="text"
+            value={this.state.value}
+            placeholder="Seeds must be 81 characters long and may only consist of 'A'-'Z' and '9'."
+            onChange={this.handleChange}
+          />
+          <FormControl.Feedback />
+        </FormGroup>
+        <input class="blueButton" type="submit" value="Get Address" />
+      </form>
+    );
+  }
+}
 
 class WalletTemplate extends React.Component {
   constructor(props) {
@@ -83,24 +137,25 @@ class AdvancedOptions extends React.Component {
   render() {
     return (
       <div class="advancedOptions">
-        <label>
-          <span class="selectText">Security Level</span>
-          <select onChange={this.handleSecurityChange}>
-            <option value='1'>1</option>
-            <option value='2' selected="selected">2</option>
-            <option value='3'>3</option>
-          </select>
-        </label>
-        <br></br><br></br>
 
-        <label>
-          <span class="selectText">Checksum</span>
-          <select onChange={this.handleChecksumChange}>
-            <option value='true'>true</option>
-            <option value='false'>false</option>
-          </select>
-        </label>
-        <br></br>
+          <label>
+            <span class="selectText">Security Level</span>
+            <select onChange={this.handleSecurityChange}>
+              <option value='1'>1</option>
+              <option value='2' selected="selected">2</option>
+              <option value='3'>3</option>
+            </select>
+          </label>
+          <br></br><br></br>
+
+          <label>
+            <span class="selectText">Checksum</span>
+            <select onChange={this.handleChecksumChange}>
+              <option value='true'>true</option>
+              <option value='false'>false</option>
+            </select>
+          </label>
+          <br></br>
       </div>
     );
   }
@@ -122,9 +177,9 @@ export class PaperWallet extends React.Component {
 
   changeChecksum(checkSumBool) { this.setState({ checksum: checkSumBool }); }
 
-  handleSubmit(event) {
+  handleSubmit(seed) {
     // Validate seed-input
-    var seed = this.state.seed
+    //var seed = this.state.seed
     var valid = true;
     if (seed.length !== 81) { valid = false; }
     for (var i=0; i < 81; i++) {
@@ -154,12 +209,13 @@ export class PaperWallet extends React.Component {
         var newAdd = add[0];
         this.setState({address: newAdd});
       });
+
     }
     else {
       alert('Seed Invalid!');
     }
 
-    event.preventDefault();
+    //event.preventDefault();
   }
 
   render() {
@@ -190,6 +246,9 @@ export class PaperWallet extends React.Component {
         {/*Advanced Options*/}
         {advOpt}
         {/*Seed Submit*/}
+        <SeedForm submit={this.handleSubmit}/>
+        {image}
+        {/*
         <form onSubmit={this.handleSubmit}>
           <label>
             <input type="text" value={this.state.seed} placeholder=" Seeds must be 81 characters long and may consist only of A-Z and 9." onChange={this.handleChange} />
@@ -198,6 +257,7 @@ export class PaperWallet extends React.Component {
           <input class="blueButton" type="submit" value="Get Address" />
           {image}
         </form>
+        */}
       </div>
     );
   }

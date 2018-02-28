@@ -49,18 +49,18 @@ select {
 }
 
 /* NavBar */
-ul {
+.navUl {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
   height: 60px;
-  background-color: #03A9F4;
+  background-color: #0288D1;
 }
-li {
+.navLi {
   float: left;
 }
-li a {
+.navLi a {
   display: block;
   color: white;
   height: 60px;
@@ -69,9 +69,9 @@ li a {
   text-decoration: none;
 }
 
-li a:hover:not(.active) { background-color: #B3E5FC; }
+li a:hover:not(.active) { background-color: #29B6F6; }
 
-.active { background-color: #4256f4; }
+.active { background-color: #00B0FF; }
 .inactive { background-color: #0277BD;  }
 
 /* FAQ */
@@ -117,6 +117,7 @@ li a:hover:not(.active) { background-color: #B3E5FC; }
 /* Other */
 body {
   font-family: Lato;
+  font-size: 16px;
   background-color: #E1F5FE;
 }
 
@@ -127,7 +128,6 @@ h1,h2,h3,h4,h5,h6 {
 
 .blueButton {
     background-color: #4256f4;
-
     border-radius: 8px;
     border: none;
     color: white;
@@ -141,17 +141,20 @@ h1,h2,h3,h4,h5,h6 {
 
 .main {
 
-    width: 70%;
-    height: 700px;
-    margin-top: 2%;
-    margin-bottom:2%;
-    margin-left:auto;
-    margin-right:auto;
-    padding-left: 20px;
-    background-color: #81D4FA;
+  width: 70%;
+  height: 700px;
+  margin-top: 2%;
+  margin-bottom:2%;
+  margin-left:auto;
+  margin-right:auto;
+  padding-left: 20px;
+  background-color: #81D4FA;
+  border-style: solid;
+  border-color: #03A9F4;
+  border-radius: 5px;
+}
 
-    border-style: solid;
-    border-color: #01579B;
-    border-radius: 5px;
-
+.back {
+    float: left;
+    margin-right:800px;
 }

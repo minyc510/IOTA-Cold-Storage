@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "bootstrap": "^4.0.0",
     "iota.lib.js": "^0.4.7",
     "konva": "^1.7.6",
     "more-entropy": "0.0.7",

@@ -17,7 +17,7 @@ export class FAQ extends React.Component {
         <h2>How do I get my own seed?</h2>
         <p class="infoBox"><b>You just need to come up with 81 characters that consist of 'A'-'Z' and '9'.</b>
         There are many ways to do this, the most secure way is to do it manually, choosing characters at random.
-        However, you should be veyr cautious when using online seed generators! Developers in the past have been known to create malicious seed generator
+        However, you should be very cautious when using online seed generators! Developers in the past have been known to create malicious seed generator
         sites designed to steal your seeds, and in turn steal your funds! If you use an online seed generator, like this one,
         you should be sure to change a good handful of the characters yourself before using the seed.
         </p>
