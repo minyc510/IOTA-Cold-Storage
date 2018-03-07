@@ -47,7 +47,7 @@ class Page2 extends React.Component {
     return (
       <div>
         <h1 class="center">First, You Need a Seed</h1>
-        <h2>Whats an IOTA seed?</h2>
+        <h3 class="bold">Whats an IOTA seed?</h3>
         <p class="infoBox"><b>An IOTA seed is like a master password required to spend your funds</b>.
          We use them to generate IOTA addresses,
          where all funds sent to those addresses can be spent using that seed.
@@ -55,10 +55,10 @@ class Page2 extends React.Component {
          Note all alphanumeric characters must be upper-case.
         </p>
         <p class="infoBox">You should keep your IOTA seed safe! Anyone who has your seed can use it to steal your funds.
-        It is analagous to a Bitcoin, Ether, or any other traditional block-chain crysudptocurrency private key.
+        It is analagous to a Bitcoin, Ether, or any other traditional block-chain cryptocurrency private key.
         </p>
 
-        <br></br><br></br><br></br>
+        <br></br><br></br>
         <div class="center">
           <Button bsStyle="primary" onClick={this.exPage.bind(this, 'Paper Wallet')}><Glyphicon glyph="ok" /> I have my own seed</Button>{' '}
           <Button bsStyle="primary"><Glyphicon glyph="leaf" /> I need a seed</Button>
@@ -71,6 +71,40 @@ class Page2 extends React.Component {
     );
   }
 }
+
+class Page3 extends React.Component {
+  constructor(props) {
+    super(props);
+    this.inPage = this.inPage.bind(this);
+    this.exPage = this.exPage.bind(this);
+  }
+
+  inPage(page) {
+    this.props.inPage(page);
+  }
+
+  exPage(page) {
+    this.props.exPage(page);
+  }
+
+  render() {
+    return (
+      <div>
+        <h1 class="center">Caution</h1>
+
+        <div class="center">
+          <Button bsStyle="primary" onClick={this.exPage.bind(this, 'Paper Wallet')}><Glyphicon glyph="ok" /> I have my own seed</Button>{' '}
+          <Button bsStyle="primary"><Glyphicon glyph="leaf" /> I need a seed</Button>
+          <br></br><br></br>
+          <div class="back">
+            <Button bsStyle="success" onClick={this.inPage.bind(this, 1)}><Glyphicon glyph="chevron-left" /> Back</Button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
+
 
 export class Home extends React.Component {
   constructor(props) {

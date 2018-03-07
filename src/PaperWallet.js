@@ -4,7 +4,7 @@ import { Stage, Layer, Image, Text } from "react-konva";
 import ToggleButton from 'react-toggle-button';
 import template from './images/plainTemplate.png';
 import IOTA from '../node_modules/iota.lib.js/lib/iota.js';
-import { FormGroup, FormControl } from 'react-bootstrap';
+import { FormGroup, FormControl, Button } from 'react-bootstrap';
 
 class SeedForm extends React.Component {
   constructor(props, context) {
@@ -40,6 +40,7 @@ class SeedForm extends React.Component {
 
   render() {
     return (
+      <div class="shortWidth">
       <form onSubmit={this.handleClick}>
         <FormGroup
           controlId="formBasicText"
@@ -51,10 +52,12 @@ class SeedForm extends React.Component {
             placeholder="Seeds must be 81 characters long and may only consist of 'A'-'Z' and '9'."
             onChange={this.handleChange}
           />
+
           <FormControl.Feedback />
         </FormGroup>
-        <input class="blueButton" type="submit" value="Get Address" />
+        <Button type="submit" bsStyle="primary">Generate</Button>
       </form>
+      </div>
     );
   }
 }
@@ -178,6 +181,7 @@ export class PaperWallet extends React.Component {
   changeChecksum(checkSumBool) { this.setState({ checksum: checkSumBool }); }
 
   handleSubmit(seed) {
+    this.setState({ seed: seed });
     // Validate seed-input
     //var seed = this.state.seed
     var valid = true;
@@ -215,7 +219,6 @@ export class PaperWallet extends React.Component {
       alert('Seed Invalid!');
     }
 
-    //event.preventDefault();
   }
 
   render() {
@@ -227,8 +230,8 @@ export class PaperWallet extends React.Component {
     return (
       <div>
         <h1 class="centerHeader">Paper Wallet Generator</h1>
-        <div class="inline">
-          <h3>Advanced Options</h3>
+        <div class="left">
+          <span class="advOptToggle">Advanced Options</span>
         </div>
 
         <ToggleButton
@@ -240,24 +243,16 @@ export class PaperWallet extends React.Component {
               advanced: !this.state.advanced,
             })
           }}
-           />
+         />
 
         <br></br>
-        {/*Advanced Options*/}
         {advOpt}
-        {/*Seed Submit*/}
-        <SeedForm submit={this.handleSubmit}/>
+        <br></br>
+        <div style={{paddingLeft:'7px'}}>
+          <SeedForm submit={this.handleSubmit}/>
+        </div>
+
         {image}
-        {/*
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            <input type="text" value={this.state.seed} placeholder=" Seeds must be 81 characters long and may consist only of A-Z and 9." onChange={this.handleChange} />
-          </label>
-          <br></br>
-          <input class="blueButton" type="submit" value="Get Address" />
-          {image}
-        </form>
-        */}
       </div>
     );
   }

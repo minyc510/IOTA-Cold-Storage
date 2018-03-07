@@ -1,20 +1,27 @@
 /* Opener */
 .centerDiv {
   text-align: center;
+}
+
+.left {
+  float: left;
+}
+
+.advOptToggle {
+  margin:8px;
 
 
+  font-weight: bold;
 }
 
 /* Paper Wallet */
-input[type=text] {
-    width: 1000px;
-    height: 35px;
-    paddingprint: 8px 8px 8px 8px;
-    margin: 8px 8px;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+div .shortWidth {
+  width: 80%;
+}
+
+form-control-feedback {
+    top: 0;
+    right: -50px;
 }
 
 .walletTemplate {
@@ -30,11 +37,10 @@ input[type=text] {
 
 select {
   height:30px;
-
 }
 
-.inline {
-  float:left;
+.marginTop {
+  margin-top: 8px;
 }
 
 .advancedOptions {
@@ -86,33 +92,34 @@ li a:hover:not(.active) { background-color: #29B6F6; }
 .center { text-align: center; }
 
 .mouseBox {
-    width: 80%;
-    height: 250px;
-    border: 2px solid black;
-    margin: auto;
-    background-color: #ffffff;
-    background-image: url("./images/iota-logo.png");
-    background-size: 850px 275px;
-    background-position: center center;
-    background-repeat:   no-repeat;
-    opacity: 0.3;
-    word-wrap: break-word;
+  width: 80%;
+  height: 250px;
+  border: 2px solid black;
+  margin: auto;
+  background-color: #ffffff;
+  background-image: url("./images/iota-logo.png");
+  background-size: 850px 275px;
+  background-position: center center;
+  background-repeat:   no-repeat;
+  opacity: 0.3;
+  word-wrap: break-word;
+  overflow: hidden;
 }
 
 .mouseBoxText { font-size: 70%; }
 
 .seedBox {
-    width: 90%;
-    height: 50px;
-    border: 2px dashed black;
-    border-radius: 8px;
-    margin: auto;
-    opacity: 0.8;
-    background-color: #ffffff;
-    word-wrap: break-word;
-    text-align: center;
-    vertical-align: middle;
-    line-height: 50px;
+  width: 90%;
+  height: 50px;
+  border: 2px dashed black;
+  border-radius: 8px;
+  margin: auto;
+  opacity: 0.8;
+  background-color: #ffffff;
+  word-wrap: break-word;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 50px;
 }
 /* Other */
 body {
@@ -122,25 +129,15 @@ body {
 }
 
 h1,h2,h3,h4,h5,h6 {
-    margin: 8px;
-    margin-top: 5;
+  margin: 8px;
+  margin-top: 5;
 }
 
-.blueButton {
-    background-color: #4256f4;
-    border-radius: 8px;
-    border: none;
-    color: white;
-    padding: 12px 25px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 8px;
+.bold {
+  font-weight: bold;
 }
 
 .main {
-
   width: 70%;
   height: 700px;
   margin-top: 2%;
@@ -155,6 +152,6 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .back {
-    float: left;
-    margin-right:800px;
+  float: left;
+  margin-right:800px;
 }

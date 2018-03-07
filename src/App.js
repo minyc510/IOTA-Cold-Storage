@@ -30,7 +30,6 @@ class App extends React.Component {
           <br></br>
           {main}
         </div>
-
       </div>
     );
   }
