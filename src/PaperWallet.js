@@ -1,10 +1,9 @@
 import React from 'react';
 import './App.css';
 import { Stage, Layer, Image, Text } from "react-konva";
-import ToggleButton from 'react-toggle-button';
 import template from './images/plainTemplate.png';
 import IOTA from '../node_modules/iota.lib.js/lib/iota.js';
-import { FormGroup, FormControl, Button, Panel, Radio, Checkbox } from 'react-bootstrap';
+import { FormGroup, FormControl, Button, Panel, Radio } from 'react-bootstrap';
 
 class SeedForm extends React.Component {
   constructor(props, context) {
