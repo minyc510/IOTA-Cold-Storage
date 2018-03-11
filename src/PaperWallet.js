@@ -4,7 +4,7 @@ import { Stage, Layer, Image, Text } from "react-konva";
 import ToggleButton from 'react-toggle-button';
 import template from './images/plainTemplate.png';
 import IOTA from '../node_modules/iota.lib.js/lib/iota.js';
-import { FormGroup, FormControl, Button } from 'react-bootstrap';
+import { FormGroup, FormControl, Button, Panel, Radio, Checkbox } from 'react-bootstrap';
 
 class SeedForm extends React.Component {
   constructor(props, context) {
@@ -105,8 +105,8 @@ function WalletImage(props) {
 
     return (
         <div>
-          <h5>Wallet Address: {props.a}</h5>
           <br></br>
+          <h5 class="center">Wallet Address: {props.a}</h5>
           <div class="walletTemplate">
             <Stage width={window.innerWidth} height={window.innerHeight}>
               <Layer>
@@ -122,7 +122,7 @@ function WalletImage(props) {
     );
 }
 
-class AdvancedOptions extends React.Component {
+class AdvOptPanel extends React.Component {
   constructor(props) {
     super(props);
     this.handleSecurityChange = this.handleSecurityChange.bind(this);
@@ -130,36 +130,43 @@ class AdvancedOptions extends React.Component {
   }
 
   handleSecurityChange(event) {
-    this.props.changeSecurity( parseInt(event.target.value, 10) );
+    this.props.changeSecurity(parseInt(event.target.value, 10));
   }
 
   handleChecksumChange(event) {
-    this.props.changeChecksum( event.target.value === 'true' ? true : false );
+    this.props.changeChecksum(event.target.checked === true ? true : false);
   }
 
   render() {
-    return (
-      <div class="advancedOptions">
+    return(
+      <Panel bsStyle="primary" style={{width: '35%'}} id="collapsible-panel-example-2">
+        <Panel.Heading>
+          <Panel.Title toggle>Advanced Options</Panel.Title>
+        </Panel.Heading>
 
-          <label>
+        <Panel.Collapse>
+          <Panel.Body>
             <span class="selectText">Security Level</span>
-            <select onChange={this.handleSecurityChange}>
-              <option value='1'>1</option>
-              <option value='2' selected="selected">2</option>
-              <option value='3'>3</option>
-            </select>
-          </label>
-          <br></br><br></br>
 
-          <label>
-            <span class="selectText">Checksum</span>
-            <select onChange={this.handleChecksumChange}>
-              <option value='true'>true</option>
-              <option value='false'>false</option>
-            </select>
-          </label>
-          <br></br>
-      </div>
+            <FormGroup style={{marginLeft: '2%'}} onChange={this.handleSecurityChange}>
+              <Radio name="radioGroup" inline value='1'>
+              1
+              </Radio>{' '}
+              <Radio name="radioGroup" inline value='2' defaultChecked>
+              2
+              </Radio>{' '}
+              <Radio name="radioGroup" inline value='3'>
+              3
+              </Radio>
+            </FormGroup>
+
+            <FormGroup style={{marginLeft: '2%'}} onChange={this.handleChecksumChange}>
+              <label>Append Checksum <input type="checkbox" defaultChecked/></label>
+            </FormGroup>
+
+          </Panel.Body>
+        </Panel.Collapse>
+      </Panel>
     );
   }
 }
@@ -167,7 +174,7 @@ class AdvancedOptions extends React.Component {
 export class PaperWallet extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { seed: '', address: '', advanced: false, security: 2, checksum: true };
+    this.state = { seed: '', address: '', security: 2, checksum: true };
     this.handleChange = this.handleChange.bind(this);
     this.changeSecurity = this.changeSecurity.bind(this);
     this.changeChecksum = this.changeChecksum.bind(this);
@@ -223,32 +230,14 @@ export class PaperWallet extends React.Component {
 
   render() {
     let image = null;
-    let advOpt = null;
     if (this.state.address !== '') { image = <WalletImage a={this.state.address} s={this.state.seed} />; }
-    if (this.state.advanced) { advOpt = <AdvancedOptions changeSecurity={this.changeSecurity} changeChecksum={this.changeChecksum}/>; }
 
     return (
       <div>
         <h1 class="centerHeader">Paper Wallet Generator</h1>
-        <div class="left">
-          <span class="advOptToggle">Advanced Options</span>
-        </div>
 
-        <ToggleButton
-          value={ this.state.advanced }
-          activeLabel="ON"
-          inactiveLabel="OFF"
-          onToggle={(value) => {
-            this.setState({
-              advanced: !this.state.advanced,
-            })
-          }}
-         />
-
-        <br></br>
-        {advOpt}
-        <br></br>
         <div style={{paddingLeft:'7px'}}>
+          <AdvOptPanel changeSecurity={this.changeSecurity} changeChecksum={this.changeChecksum}/>
           <SeedForm submit={this.handleSubmit}/>
         </div>
 

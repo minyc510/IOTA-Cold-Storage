@@ -15,8 +15,8 @@
 }
 
 /* Paper Wallet */
-div .shortWidth {
-  width: 80%;
+.shortWidth {
+  width: 85%;
 }
 
 form-control-feedback {
