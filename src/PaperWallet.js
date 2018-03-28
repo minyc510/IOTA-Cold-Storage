@@ -10,7 +10,9 @@ class SeedForm extends React.Component {
     super(props, context);
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
-    this.state = { value: '' };
+    this.changeSecurity = this.changeSecurity.bind(this);
+    this.changeChecksum = this.changeChecksum.bind(this);
+    this.state = { value: '', security: 2, checksum: true };
   }
 
   getValidationState() {
@@ -36,6 +38,10 @@ class SeedForm extends React.Component {
     this.props.submit(this.state.value);
     event.preventDefault();
   }
+
+  changeSecurity(secLevel) { this.setState({ security: secLevel }); }
+
+  changeChecksum(checkSumBool) { this.setState({ checksum: checkSumBool }); }
 
   render() {
     return (
@@ -138,7 +144,7 @@ class AdvOptPanel extends React.Component {
 
   render() {
     return(
-      <Panel bsStyle="primary" style={{width: '35%'}} id="collapsible-panel-example-2">
+      <Panel bsStyle="primary" style={{width: '85%'}} id="collapsible-panel-example-2">
         <Panel.Heading>
           <Panel.Title toggle>Advanced Options</Panel.Title>
         </Panel.Heading>
@@ -159,7 +165,7 @@ class AdvOptPanel extends React.Component {
               </Radio>
             </FormGroup>
 
-            <FormGroup style={{marginLeft: '2%'}} onChange={this.handleChecksumChange}>
+            <FormGroup style={{marginLeft: '1%'}} onChange={this.handleChecksumChange}>
               <label>Append Checksum <input type="checkbox" defaultChecked/></label>
             </FormGroup>
 
@@ -237,7 +243,8 @@ export class PaperWallet extends React.Component {
 
         <div style={{paddingLeft:'7px'}}>
           <AdvOptPanel changeSecurity={this.changeSecurity} changeChecksum={this.changeChecksum}/>
-          <SeedForm submit={this.handleSubmit}/>
+
+          <SeedForm submit={this.handleSubmit} changeSecurity={this.changeSecurity} changeChecksum={this.changeChecksum}/>
         </div>
 
         {image}
