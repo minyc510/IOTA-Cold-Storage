@@ -72,40 +72,6 @@ class Page2 extends React.Component {
   }
 }
 
-class Page3 extends React.Component {
-  constructor(props) {
-    super(props);
-    this.inPage = this.inPage.bind(this);
-    this.exPage = this.exPage.bind(this);
-  }
-
-  inPage(page) {
-    this.props.inPage(page);
-  }
-
-  exPage(page) {
-    this.props.exPage(page);
-  }
-
-  render() {
-    return (
-      <div>
-        <h1 class="center">Caution</h1>
-
-        <div class="center">
-          <Button bsStyle="primary" onClick={this.exPage.bind(this, 'Paper Wallet')}><Glyphicon glyph="ok" /> I have my own seed</Button>{' '}
-          <Button bsStyle="primary"><Glyphicon glyph="leaf" /> I need a seed</Button>
-          <br></br><br></br>
-          <div class="back">
-            <Button bsStyle="success" onClick={this.inPage.bind(this, 1)}><Glyphicon glyph="chevron-left" /> Back</Button>
-          </div>
-        </div>
-      </div>
-    );
-  }
-}
-
-
 export class Home extends React.Component {
   constructor(props) {
     super(props);

@@ -3,7 +3,7 @@ import './App.css';
 import ReactTooltip from '../node_modules/react-tooltip';
 import tipIcon from './images/toolTipIcon.png';
 
-var collectionPoints = 490; //Number of mouse-coordinates required
+var collectionPoints = 250; //Number of mouse-coordinates required
 
 class MouseBox extends React.Component {
   constructor(props) {
@@ -61,7 +61,6 @@ export class GenerateSeed extends React.Component {
     for (let i = 0; i < 81; i++) {
       psuedoRandSeed += possible.charAt(Math.floor(Math.random() * possible.length));
     }
-
     let seed = '';
     //Use mouse-entropy to further randomize seed
     for (let i = 0; i < psuedoRandSeed.length; i++) {

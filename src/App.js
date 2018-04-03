@@ -19,14 +19,15 @@ class App extends React.Component {
 
   render() {
     let main = null;
-    if (this.state.currPage === 'Home') {main = <Home currPage={this.state.currPage} onClick={this.changePage}/>}
+    let css = "main";
+    if (this.state.currPage === 'Home') {main = <Home currPage={this.state.currPage} onClick={this.changePage}/>; css = "shortMain"}
     if (this.state.currPage === 'Paper Wallet') { main = <PaperWallet />}
     if (this.state.currPage === 'Generate Seed') { main = <GenerateSeed />}
     if (this.state.currPage === 'FAQ') { main = <FAQ />}
     return (
       <div>
         <NavBar currPage={this.state.currPage} onClick={this.changePage}/>
-        <div class="main">
+        <div class={css}>
           <br></br>
           {main}
         </div>

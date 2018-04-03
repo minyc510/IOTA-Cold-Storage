@@ -74,6 +74,17 @@ select {
   padding: 20px 24px;
   text-decoration: none;
 }
+.github {
+    float: right;
+}
+.github a {
+  display: block;
+  color: white;
+  height: 60px;
+  text-align: center;
+  padding: 20px 24px;
+  text-decoration: none;
+}
 
 li a:hover:not(.active) { background-color: #29B6F6; }
 
@@ -139,12 +150,26 @@ h1,h2,h3,h4,h5,h6 {
 
 .main {
   width: 70%;
-  height: 700px;
+  height: 600px;
   margin-top: 2%;
   margin-bottom:2%;
   margin-left:auto;
   margin-right:auto;
-  padding-left: 20px;
+  padding-left: 2%;
+  background-color: #81D4FA;
+  border-style: solid;
+  border-color: #03A9F4;
+  border-radius: 5px;
+}
+
+.shortMain {
+  width: 70%;
+  height: 400px;
+  margin-top: 2%;
+  margin-bottom:2%;
+  margin-left:auto;
+  margin-right:auto;
+  padding-left: 2%;
   background-color: #81D4FA;
   border-style: solid;
   border-color: #03A9F4;

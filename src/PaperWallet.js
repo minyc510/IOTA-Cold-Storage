@@ -2,8 +2,9 @@ import React from 'react';
 import './App.css';
 import { Stage, Layer, Image, Text } from "react-konva";
 import template from './images/plainTemplate.png';
+
 import IOTA from '../node_modules/iota.lib.js/lib/iota.js';
-import { FormGroup, FormControl, Button, Panel, Radio } from 'react-bootstrap';
+import { FormGroup, FormControl, Button, Panel, Radio, Table } from 'react-bootstrap';
 
 class SeedForm extends React.Component {
   constructor(props, context) {
@@ -150,25 +151,37 @@ class AdvOptPanel extends React.Component {
         </Panel.Heading>
 
         <Panel.Collapse>
-          <Panel.Body>
-            <span class="selectText">Security Level</span>
-
-            <FormGroup style={{marginLeft: '2%'}} onChange={this.handleSecurityChange}>
-              <Radio name="radioGroup" inline value='1'>
-              1
-              </Radio>{' '}
-              <Radio name="radioGroup" inline value='2' defaultChecked>
-              2
-              </Radio>{' '}
-              <Radio name="radioGroup" inline value='3'>
-              3
-              </Radio>
-            </FormGroup>
-
-            <FormGroup style={{marginLeft: '1%'}} onChange={this.handleChecksumChange}>
-              <label>Append Checksum <input type="checkbox" defaultChecked/></label>
-            </FormGroup>
-
+          <Panel.Body style={{paddingBottom: '0px'}}>
+          <Table striped bordered condensed hover>
+            <thead>
+              <tr>
+                <th>Security Level</th>
+                <th>Append Checksum</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                <FormGroup style={{marginLeft: '2%'}} onChange={this.handleSecurityChange}>
+                  <Radio name="radioGroup" inline value='1'>
+                  1
+                  </Radio>{' '}
+                  <Radio name="radioGroup" inline value='2' defaultChecked>
+                  2
+                  </Radio>{' '}
+                  <Radio name="radioGroup" inline value='3'>
+                  3
+                  </Radio>
+                </FormGroup>
+                </td>
+                <td>
+                <FormGroup style={{marginLeft: '1%'}} onChange={this.handleChecksumChange}>
+                  <input type="checkbox" defaultChecked/>
+                </FormGroup>
+                </td>
+              </tr>
+            </tbody>
+          </Table>
           </Panel.Body>
         </Panel.Collapse>
       </Panel>
@@ -239,11 +252,10 @@ export class PaperWallet extends React.Component {
 
     return (
       <div>
-        <h1 class="centerHeader">Paper Wallet Generator</h1>
+        <h1 class="center">Paper Wallet Generator</h1>
 
         <div style={{paddingLeft:'7px'}}>
           <AdvOptPanel changeSecurity={this.changeSecurity} changeChecksum={this.changeChecksum}/>
-
           <SeedForm submit={this.handleSubmit} changeSecurity={this.changeSecurity} changeChecksum={this.changeChecksum}/>
         </div>
 
