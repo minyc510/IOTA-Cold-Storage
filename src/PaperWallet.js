@@ -1,11 +1,13 @@
 import React from 'react';
 import './App.css';
 import { Stage, Layer, Image, Text } from "react-konva";
-import template from './images/greyTemplate.png';
+import greyNetworkTemplate from './images/greyTemplate.png';
+import plainWhiteTemplate from './images/plainTemplate.png';
+
 import ReactTooltip from '../node_modules/react-tooltip';
 
 import IOTA from '../node_modules/iota.lib.js/lib/iota.js';
-import { FormGroup, FormControl, Button, Panel, Radio, Table } from 'react-bootstrap';
+import { FormGroup, FormControl, Button, Panel, Radio, Table, ControlLabel } from 'react-bootstrap';
 
 //Form for seed input, uses React-Bootstrap forms
 class SeedForm extends React.Component {
@@ -13,9 +15,7 @@ class SeedForm extends React.Component {
     super(props, context);
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
-    this.changeSecurity = this.changeSecurity.bind(this);
-    this.changeChecksum = this.changeChecksum.bind(this);
-    this.state = { value: '', security: 2, checksum: true };
+    this.state = { value: '' };
   }
 
   getValidationState() {
@@ -42,10 +42,6 @@ class SeedForm extends React.Component {
     event.preventDefault();
   }
 
-  changeSecurity(secLevel) { this.setState({ security: secLevel }); }
-
-  changeChecksum(checkSumBool) { this.setState({ checksum: checkSumBool }); }
-
   render() {
     return (
       <div class="shortWidth">
@@ -57,7 +53,7 @@ class SeedForm extends React.Component {
           <FormControl
             type="text"
             value={this.state.value}
-            placeholder="Input Seed. Must be 81 characters long and may only consist of 'A'-'Z' and '9'."
+            placeholder="Input seed. Must be 81 characters long and may only consist of 'A'-'Z' and '9'."
             onChange={this.handleChange}
           />
 
@@ -74,19 +70,28 @@ class SeedForm extends React.Component {
 class WalletTemplate extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { image: null };
+    this.state = { image: null, theme: this.props.theme };
   }
+
   componentDidMount() {
     const image = new window.Image();
-    image.src = template;
+    if (this.state.theme === 'greyNetwork') { image.src = greyNetworkTemplate; }
+    if (this.state.theme === 'plainWhite') { image.src = plainWhiteTemplate; }
+
     image.onload = () => {
       this.setState({ image: image });
     };
   }
-  render() { return <Image image={this.state.image} />; }
+  render() {
+    return <Image image={this.state.image} />; }
 }
 
-function WalletImage(props) {
+class WalletImage extends React.Component {
+    constructor(props) {
+      super(props);
+    }
+
+    render() {
 
     var pub = <Text
       text="Public Wallet Address:" fontSize="18" fontFamily="Courier New"
@@ -95,19 +100,19 @@ function WalletImage(props) {
     />
 
     var priv = <Text
-      text="Private Seed:" fontSize="18" fontFamily="Courier New"
+      text="Private Seed:" fontColor="white" fontSize="18" fontFamily="Courier New"
       x="18"
       y="85"
     />
 
     var address = <Text
-      text={props.a} fontSize="15" fontFamily="Courier New"
+      text={this.props.a} fontSize="15" fontFamily="Courier New"
       x="17"
       y="55"
     />
 
     var seed = <Text
-      text={props.s} fontSize="15" fontFamily="Courier New"
+      text={this.props.s} fontSize="15" fontFamily="Courier New"
       x="17"
       y="105"
     />
@@ -115,11 +120,11 @@ function WalletImage(props) {
     return (
         <div>
           <br></br>
-          <h5 class="center">Wallet Address: {props.a}</h5>
+          <h5 class="center">Wallet Address: {this.props.a}</h5>
           <div class="walletTemplate">
             <Stage width={window.innerWidth} height={window.innerHeight}>
               <Layer>
-                <WalletTemplate />
+                <WalletTemplate theme={this.props.theme}/>
                 {pub}
                 {priv}
                 {address}
@@ -129,6 +134,7 @@ function WalletImage(props) {
           </div>
         </div>
     );
+    }
 }
 
 //Advanced Options
@@ -172,30 +178,29 @@ class AdvOptPanel extends React.Component {
                 <ReactTooltip id='checksumTip' place="right" type="dark" effect="float">
                   <div style={{fontSize: '110%', }}>Adds a 9-character 'checksum' to your address. When sending tokens to an address with a checksum,
                   if the checksum does not match the address, the network will reject the transaction.
-                  A checksum helps to ensure a user is sending to the correct address.
-                  </div>
+                  A checksum helps to ensure a user is sending to the correct address.</div>
                 </ReactTooltip>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>
-                <FormGroup style={{marginLeft: '2%'}} onChange={this.handleSecurityChange}>
-                  <Radio name="radioGroup" inline value='1'>
-                  1
-                  </Radio>{' '}
-                  <Radio name="radioGroup" inline value='2' defaultChecked>
-                  2
-                  </Radio>{' '}
-                  <Radio name="radioGroup" inline value='3'>
-                  3
-                  </Radio>
-                </FormGroup>
+                  <FormGroup style={{marginLeft: '2%'}} onChange={this.handleSecurityChange}>
+                    <Radio name="radioGroup" inline value='1'>
+                    1
+                    </Radio>{' '}
+                    <Radio name="radioGroup" inline value='2' defaultChecked>
+                    2
+                    </Radio>{' '}
+                    <Radio name="radioGroup" inline value='3'>
+                    3
+                    </Radio>
+                  </FormGroup>
                 </td>
                 <td>
-                <FormGroup style={{marginLeft: '1%'}} onChange={this.handleChecksumChange}>
-                  <input type="checkbox" defaultChecked/>
-                </FormGroup>
+                  <FormGroup style={{marginLeft: '1%'}} onChange={this.handleChecksumChange}>
+                    <input type="checkbox" defaultChecked/>
+                  </FormGroup>
                 </td>
               </tr>
             </tbody>
@@ -207,14 +212,39 @@ class AdvOptPanel extends React.Component {
   }
 }
 
+class ThemeSelect extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleThemeChange = this.handleThemeChange.bind(this);
+  }
+
+  handleThemeChange(event) { this.props.changeTheme(event.target.value); }
+
+  render() {
+    return (
+      <div>
+        <b style={{marginRight:'4px'}}>Wallet Theme</b>
+
+        <select onChange={this.handleThemeChange}>
+          <option value='greyNetwork'>Grey Network</option>
+          <option value='plainWhite'>Plain White</option>
+          <option value='blue'>Blue</option>
+          <option value='grid'>Grid</option>
+        </select>
+      </div>
+    );
+  }
+}
+
 //Main PaperWallet Body
 export class PaperWallet extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { seed: '', address: '', security: 2, checksum: true };
+    this.state = { seed: '', address: '', security: 2, checksum: true, theme: 'greyNetwork' };
     this.handleChange = this.handleChange.bind(this);
     this.changeSecurity = this.changeSecurity.bind(this);
     this.changeChecksum = this.changeChecksum.bind(this);
+    this.changeTheme = this.changeTheme.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -223,6 +253,8 @@ export class PaperWallet extends React.Component {
   changeSecurity(secLevel) { this.setState({ security: secLevel }); }
 
   changeChecksum(checkSumBool) { this.setState({ checksum: checkSumBool }); }
+
+  changeTheme(newTheme) { this.setState({ theme: newTheme }); }
 
   handleSubmit(seed) {
     this.setState({ seed: seed });
@@ -267,7 +299,7 @@ export class PaperWallet extends React.Component {
 
   render() {
     let image = null;
-    if (this.state.address !== '') { image = <WalletImage a={this.state.address} s={this.state.seed} />; }
+    if (this.state.address !== '') { image = <WalletImage a={this.state.address} s={this.state.seed} theme={this.state.theme}/>; }
 
     return (
       <div>
@@ -275,6 +307,8 @@ export class PaperWallet extends React.Component {
 
         <div style={{paddingLeft:'7px'}}>
           <AdvOptPanel changeSecurity={this.changeSecurity} changeChecksum={this.changeChecksum}/>
+          <ThemeSelect changeTheme={this.changeTheme}/>
+
           <SeedForm submit={this.handleSubmit} changeSecurity={this.changeSecurity} changeChecksum={this.changeChecksum}/>
         </div>
 
