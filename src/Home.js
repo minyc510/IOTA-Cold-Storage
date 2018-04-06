@@ -47,14 +47,15 @@ class Page2 extends React.Component {
     return (
       <div>
         <h1 class="center">First, You Need a Seed</h1>
-        <div style={{marginLeft: '9%'}}>
-          <h3 class="bold">Whats an IOTA seed?</h3>
-          <p class="infoBox"><b>An IOTA seed is like a master password required to spend your funds</b>.
-           We use them to generate IOTA addresses,
-           where all funds sent to those addresses can be spent using that seed.
-           A seed is exactly 81 characters long, and can only consist of ('A'-'Z') and '9'.
-           Note all alphanumeric characters must be upper-case.
-          </p>
+        <div >
+          <p class="infoBox">
+            <b style={{fontSize: '110%'}}>An IOTA seed is like a master password required to spend your funds</b>.<br></br>
+            We use them to generate IOTA addresses,
+            where all funds sent to those addresses can be spent using that seed.
+            A seed is exactly 81 characters long, and can only consist of ('A'-'Z') and '9'.
+            Note all alphanumeric characters must be upper-case.
+          </p><br></br>
+
           <p class="infoBox">You should keep your IOTA seed safe! Anyone who has your seed can use it to steal your funds.
           It is analagous to the private keys of Bitcoin, Ether, or any other traditional block-chain cryptocurrency.
           </p>

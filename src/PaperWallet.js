@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import { Stage, Layer, Image, Text } from "react-konva";
 import template from './images/greyTemplate.png';
+import ReactTooltip from '../node_modules/react-tooltip';
 
 import IOTA from '../node_modules/iota.lib.js/lib/iota.js';
 import { FormGroup, FormControl, Button, Panel, Radio, Table } from 'react-bootstrap';
@@ -146,6 +147,7 @@ class AdvOptPanel extends React.Component {
     this.props.changeChecksum(event.target.checked === true ? true : false);
   }
 
+
   render() {
     return(
       <Panel bsStyle="primary" style={{width: '85%'}} id="collapsible-panel-example-2">
@@ -155,11 +157,24 @@ class AdvOptPanel extends React.Component {
 
         <Panel.Collapse>
           <Panel.Body style={{paddingBottom: '0px'}}>
+          <p>Default values are reccommended.</p>
           <Table striped bordered condensed hover>
             <thead>
               <tr>
-                <th>Security Level</th>
-                <th>Append Checksum</th>
+                <th data-tip data-for='securityTip'>Security Level</th>
+                <th data-tip data-for='checksumTip'>Append Checksum</th>
+
+                <ReactTooltip id='securityTip' place="right" type="dark" effect="float">
+                  <div style={{fontSize: '110%'}}>A higher security level makes it harder to brute-force a key-signature. <br></br>
+                  However, more PoW is required for transactions.</div>
+                </ReactTooltip>
+
+                <ReactTooltip id='checksumTip' place="right" type="dark" effect="float">
+                  <div style={{fontSize: '110%', }}>Adds a 9-character 'checksum' to your address. When sending tokens to an address with a checksum,
+                  if the checksum does not match the address, the network will reject the transaction.
+                  A checksum helps to ensure a user is sending to the correct address.
+                  </div>
+                </ReactTooltip>
               </tr>
             </thead>
             <tbody>

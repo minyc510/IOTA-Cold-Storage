@@ -6,12 +6,14 @@ export class FAQ extends React.Component {
   render() {
     return (
       <div>
-        <h2>Whats an IOTA seed?</h2>
-        <p class="infoBox"><b>An IOTA seed is like a master password required to spend your funds</b>.
-         It can be used to generate an IOTA address,
-         where all funds sent to that address can be spent using that seed.
-         A seed is exactly 81 characters long, and can only consist of ('A'-'Z') and '9'.
-         Note all alphanumeric characters must be upper-case.
+        <p class="infoBox">
+          <h2>Whats an IOTA seed?</h2>
+
+          <b>An IOTA seed is like a master password required to spend your funds</b>.
+           It can be used to generate an IOTA address,
+           where all funds sent to that address can be spent using that seed.
+           A seed is exactly 81 characters long, and can only consist of ('A'-'Z') and '9'.
+           Note all alphanumeric characters must be upper-case.
         </p>
 
         <h2>How do I get my own seed?</h2>

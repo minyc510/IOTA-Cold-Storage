@@ -93,8 +93,8 @@ li a:hover:not(.active) { background-color: #29B6F6; }
 
 /* FAQ */
 .infoBox {
-    margin: 8px;
-    width: 800px;
+    margin: 0 auto;
+    width: 90%;
 }
 
 /* Generate Seed */
@@ -132,8 +132,6 @@ li a:hover:not(.active) { background-color: #29B6F6; }
   vertical-align: middle;
   line-height: 50px;
 }
-
-
 .well {
   width: 85%;
   border: 2px solid black;
@@ -169,7 +167,7 @@ h1,h2,h3,h4,h5,h6 {
 
 .main {
   width: 70%;
-  height: 600px;
+  height: 800px;
   margin-top: 2%;
   margin-bottom:2%;
   margin-left:auto;
@@ -183,7 +181,7 @@ h1,h2,h3,h4,h5,h6 {
 
 .shortMain {
   width: 70%;
-  height: 400px;
+  height: 375px;
   margin-top: 2%;
   margin-bottom:2%;
   margin-left:auto;
