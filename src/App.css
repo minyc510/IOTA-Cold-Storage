@@ -117,7 +117,7 @@ li a:hover:not(.active) { background-color: #29B6F6; }
   overflow: hidden;
 }
 
-.mouseBoxText { font-size: 70%; }
+.mouseBoxText { font-size: 80%; }
 
 .seedBox {
   width: 90%;
@@ -132,12 +132,31 @@ li a:hover:not(.active) { background-color: #29B6F6; }
   vertical-align: middle;
   line-height: 50px;
 }
+
+
+.well {
+  width: 85%;
+  border: 2px solid black;
+  margin: 0 auto;
+  background-color: #4FC3F7;
+  overflow: auto;
+}
+.cautionStripes {
+  width: 85%;
+  height: 30px;
+  border: 2px solid black;
+  margin: 0 auto;
+  background-image: url("./images/cautionStripes.png");
+  background-size:cover;
+}
 /* Other */
 body {
   font-family: Lato;
   font-size: 16px;
   background-color: #E1F5FE;
 }
+
+
 
 h1,h2,h3,h4,h5,h6 {
   margin: 8px;

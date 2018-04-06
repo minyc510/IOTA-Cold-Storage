@@ -2,9 +2,45 @@ import React from 'react';
 import './App.css';
 import ReactTooltip from '../node_modules/react-tooltip';
 import tipIcon from './images/toolTipIcon.png';
+import { Button } from 'react-bootstrap';
 
-var collectionPoints = 250; //Number of mouse-coordinates required
 
+var collectionPoints = 300; //Number of mouse-coordinates required
+
+//Warning about Seed Generators
+class WarningPage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    this.props.onClick(2);
+  }
+
+  render() {
+    return (
+      <div>
+        <div class="cautionStripes"></div>
+        <div class="well" style={{height: '330px'}}>
+          <h3>A Warning About Seed Generators</h3>
+          <p style={{textAlign: 'left', marginLeft: '8px', fontSize: '120%'}}>
+          <ul>
+            <li>Seed Generators have been known in the past to be malicious and designed to steal your seeds (and in turn steal your IOTA tokens).</li>
+            <li>This tool should only be used for testing purposes. However, if you do decide to use this to generate your seed (or any other generator) you should be sure to change a handful of characters manually.</li>
+            <li>The most secure way to generate seeds is to manually come up with the 81 characters, making sure they are completely random.</li>
+          </ul>
+          </p>
+        </div>
+        <div class="cautionStripes"></div>
+
+        <br></br>
+        <Button bsStyle="danger" onClick={this.handleClick.bind(this)}>Continue</Button>
+      </div>
+    );
+  }
+}
+//Collects entropy from mouse movements
 class MouseBox extends React.Component {
   constructor(props) {
     super(props);
@@ -25,9 +61,9 @@ class MouseBox extends React.Component {
   render() {
     return(
       <div>
-        <h1 class="centerHeader">Entropy Collection {Math.floor((this.props.collected / collectionPoints)*100)}%&nbsp;
+        <h3 class="centerHeader">Entropy {Math.floor((this.props.collected / collectionPoints)*100)}%&nbsp;
           <a data-tip data-for='entropyTip'><img src={tipIcon} alt='?'width="20px"/></a>
-        </h1>
+        </h3>
 
         <ReactTooltip id='entropyTip' place="right" type="dark" effect="float">
           <p>Your mouse movements inside the box are recorded, and <br></br>
@@ -43,15 +79,20 @@ class MouseBox extends React.Component {
   }
 }
 
-
-export class GenerateSeed extends React.Component {
+class GenerateSeed extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      currPage: 1,
       randArr: [],
       collected: 0,
     };
     this.mouseMove = this.mouseMove.bind(this);
+    this.changePage = this.changePage.bind(this);
+  }
+
+  changePage(newPage) {
+    this.setState({ currPage: newPage });
   }
 
   generateSeed() {
@@ -84,6 +125,9 @@ export class GenerateSeed extends React.Component {
     if (this.state.collected === collectionPoints) { seed = this.generateSeed(); }
     return (
       <div>
+          <p style={{fontSize: '120%'}}>
+          Move your mouse around the box below, once enough entropy has been collected, your seed will be generated.
+          </p>
         <MouseBox randArr={this.state.randArr} collected={this.state.collected} onMouseMove={this.mouseMove} />
         <br></br><br></br>
         <div class="seedBox">
@@ -92,4 +136,33 @@ export class GenerateSeed extends React.Component {
       </div>
     );
   }
+}
+
+export class GenerateSeedMain extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      currPage: 1,
+    };
+    this.changePage = this.changePage.bind(this);
+  }
+
+  changePage(newPage) {
+    this.setState({ currPage: newPage });
+  }
+
+  render() {
+    let page = null;
+    if (this.state.currPage === 1) { page = <WarningPage onClick={this.changePage}/>; }
+    else { page = <GenerateSeed />; }
+
+    return (
+      <div class="center">
+        <h1>Generate Seed</h1>
+
+        {page}
+      </div>
+    );
+  }
+
 }

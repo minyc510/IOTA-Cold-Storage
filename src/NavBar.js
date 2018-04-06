@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import github from './images/githubIcon.png';
-import vault from './images/vaultIcon.png'
 export class NavBar extends React.Component {
   constructor(props) {
     super(props);

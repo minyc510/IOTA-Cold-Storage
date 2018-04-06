@@ -1,11 +1,12 @@
 import React from 'react';
 import './App.css';
 import { Stage, Layer, Image, Text } from "react-konva";
-import template from './images/plainTemplate.png';
+import template from './images/greyTemplate.png';
 
 import IOTA from '../node_modules/iota.lib.js/lib/iota.js';
 import { FormGroup, FormControl, Button, Panel, Radio, Table } from 'react-bootstrap';
 
+//Form for seed input, uses React-Bootstrap forms
 class SeedForm extends React.Component {
   constructor(props, context) {
     super(props, context);
@@ -55,7 +56,7 @@ class SeedForm extends React.Component {
           <FormControl
             type="text"
             value={this.state.value}
-            placeholder="Seeds must be 81 characters long and may only consist of 'A'-'Z' and '9'."
+            placeholder="Input Seed. Must be 81 characters long and may only consist of 'A'-'Z' and '9'."
             onChange={this.handleChange}
           />
 
@@ -68,6 +69,7 @@ class SeedForm extends React.Component {
   }
 }
 
+//Paper Wallet Art here
 class WalletTemplate extends React.Component {
   constructor(props) {
     super(props);
@@ -87,25 +89,25 @@ function WalletImage(props) {
 
     var pub = <Text
       text="Public Wallet Address:" fontSize="18" fontFamily="Courier New"
-      x="15"
+      x="18"
       y="35"
     />
 
     var priv = <Text
       text="Private Seed:" fontSize="18" fontFamily="Courier New"
-      x="15"
+      x="18"
       y="85"
     />
 
     var address = <Text
       text={props.a} fontSize="15" fontFamily="Courier New"
-      x="14"
+      x="17"
       y="55"
     />
 
     var seed = <Text
       text={props.s} fontSize="15" fontFamily="Courier New"
-      x="14"
+      x="17"
       y="105"
     />
 
@@ -128,6 +130,7 @@ function WalletImage(props) {
     );
 }
 
+//Advanced Options
 class AdvOptPanel extends React.Component {
   constructor(props) {
     super(props);
@@ -189,6 +192,7 @@ class AdvOptPanel extends React.Component {
   }
 }
 
+//Main PaperWallet Body
 export class PaperWallet extends React.Component {
   constructor(props) {
     super(props);

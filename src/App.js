@@ -3,7 +3,7 @@ import './App.css';
 import { NavBar } from './NavBar.js'
 import { Home } from './Home.js'
 import { PaperWallet } from './PaperWallet.js'
-import { GenerateSeed } from './GenerateSeed.js'
+import { GenerateSeedMain } from './GenerateSeed.js'
 import { FAQ } from './FAQ.js'
 
 class App extends React.Component {
@@ -22,7 +22,7 @@ class App extends React.Component {
     let css = "main";
     if (this.state.currPage === 'Home') {main = <Home currPage={this.state.currPage} onClick={this.changePage}/>; css = "shortMain"}
     if (this.state.currPage === 'Paper Wallet') { main = <PaperWallet />}
-    if (this.state.currPage === 'Generate Seed') { main = <GenerateSeed />}
+    if (this.state.currPage === 'Generate Seed') { main = <GenerateSeedMain />}
     if (this.state.currPage === 'FAQ') { main = <FAQ />}
     return (
       <div>
@@ -31,6 +31,12 @@ class App extends React.Component {
           <br></br>
           {main}
         </div>
+        <br></br><br></br><br></br>
+        <h5 class="center">Donations</h5>
+        <h6 class="center">IOTA: YSDSRPVBTHVCISWLBCLQRAFDKPNZPDXKHEEGFUNFCSDQYVYXGIYNRHBEIYPLWXUGAQDSCXPHNNIMZZMBCQQO9LZVJY</h6>
+        <h6 class="center">BTC: 18cx6rPftt1tqX736CewAp84X5bsceBAQL</h6>
+        <h6 class="center">ETH: 0x60d2080d9494134a537ab3f987d3c34a309b489c</h6>
+
       </div>
     );
   }
