@@ -7,7 +7,7 @@ import plainWhiteTemplate from './images/plainTemplate.png';
 import ReactTooltip from '../node_modules/react-tooltip';
 
 import IOTA from '../node_modules/iota.lib.js/lib/iota.js';
-import { FormGroup, FormControl, Button, Panel, Radio, Table, ControlLabel } from 'react-bootstrap';
+import { FormGroup, FormControl, Button, Panel, Radio, Table } from 'react-bootstrap';
 
 //Form for seed input, uses React-Bootstrap forms
 class SeedForm extends React.Component {
@@ -120,7 +120,7 @@ class WalletImage extends React.Component {
     return (
         <div>
           <br></br>
-          <h5 class="center">Wallet Address: {this.props.a}</h5>
+          <h5>Wallet Address: {this.props.a}</h5>
           <div class="walletTemplate">
             <Stage width={window.innerWidth} height={window.innerHeight}>
               <Layer>
@@ -211,7 +211,7 @@ class AdvOptPanel extends React.Component {
     );
   }
 }
-
+/*
 class ThemeSelect extends React.Component {
   constructor(props) {
     super(props);
@@ -235,6 +235,7 @@ class ThemeSelect extends React.Component {
     );
   }
 }
+*/
 
 //Main PaperWallet Body
 export class PaperWallet extends React.Component {
@@ -307,7 +308,7 @@ export class PaperWallet extends React.Component {
 
         <div style={{paddingLeft:'7px'}}>
           <AdvOptPanel changeSecurity={this.changeSecurity} changeChecksum={this.changeChecksum}/>
-          <ThemeSelect changeTheme={this.changeTheme}/>
+          {/*<ThemeSelect changeTheme={this.changeTheme}/>*/}
 
           <SeedForm submit={this.handleSubmit} changeSecurity={this.changeSecurity} changeChecksum={this.changeChecksum}/>
         </div>

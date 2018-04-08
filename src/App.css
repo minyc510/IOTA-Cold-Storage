@@ -26,7 +26,7 @@ form-control-feedback {
 
 .walletTemplate {
   width: 50%;
-  margin-left: 6%;
+  margin-left: 0.75%;
 }
 
 .selectText {
@@ -132,13 +132,6 @@ li a:hover:not(.active) { background-color: #29B6F6; }
   vertical-align: middle;
   line-height: 50px;
 }
-.well {
-  width: 85%;
-  border: 2px solid black;
-  margin: 0 auto;
-  background-color: #4FC3F7;
-  overflow: auto;
-}
 .cautionStripes {
   width: 85%;
   height: 30px;
@@ -147,6 +140,15 @@ li a:hover:not(.active) { background-color: #29B6F6; }
   background-image: url("./images/cautionStripes.png");
   background-size:cover;
 }
+
+.cautionWell {
+  width: 85%;
+  border: 2px solid black;
+  margin: 0 auto;
+  background-color: #4FC3F7;
+  overflow: auto;
+}
+
 /* Other */
 body {
   font-family: Lato;

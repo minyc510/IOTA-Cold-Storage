@@ -21,8 +21,8 @@ class WarningPage extends React.Component {
   render() {
     return (
       <div>
-        <div class="cautionStripes"></div>
-        <div class="well" style={{height: '330px'}}>
+        <div class="cautionStripes" style={{borderBottomStyle: 'none'}}></div>
+        <div class="cautionWell" style={{borderBottomStyle: 'none', borderTopStyle: ''}}>
           <h3>A Warning About Seed Generators</h3>
           <p style={{textAlign: 'left', marginLeft: '8px', fontSize: '120%'}}>
           <ul>
@@ -32,8 +32,7 @@ class WarningPage extends React.Component {
           </ul>
           </p>
         </div>
-        <div class="cautionStripes"></div>
-
+        <div class="cautionStripes" style={{borderTopStyle: 'none'}}></div>
         <br></br>
         <Button bsStyle="danger" onClick={this.handleClick.bind(this)}>Continue</Button>
       </div>
