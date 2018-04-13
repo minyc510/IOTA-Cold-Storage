@@ -9,8 +9,6 @@
 
 .advOptToggle {
   margin:8px;
-
-
   font-weight: bold;
 }
 
@@ -20,8 +18,8 @@
 }
 
 form-control-feedback {
-    top: 0;
-    right: -50px;
+  top: 0;
+  right: -50px;
 }
 
 .walletTemplate {
@@ -75,7 +73,7 @@ select {
   text-decoration: none;
 }
 .github {
-    float: right;
+  float: right;
 }
 .github a {
   display: block;
@@ -87,7 +85,6 @@ select {
 }
 
 li a:hover:not(.active) { background-color: #29B6F6; }
-
 .active { background-color: #00B0FF; }
 .inactive { background-color: #0277BD;  }
 
@@ -151,7 +148,6 @@ li a:hover:not(.active) { background-color: #29B6F6; }
 
 /* Other */
 body {
-  font-family: Lato;
   font-size: 16px;
   background-color: #E1F5FE;
 }

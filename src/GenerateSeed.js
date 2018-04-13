@@ -21,18 +21,18 @@ class WarningPage extends React.Component {
   render() {
     return (
       <div>
-        <div class="cautionStripes" style={{borderBottomStyle: 'none'}}></div>
-        <div class="cautionWell" style={{borderBottomStyle: 'none', borderTopStyle: ''}}>
+        <div className="cautionStripes" style={{borderBottomStyle: 'none'}}></div>
+        <div className="cautionWell" style={{borderBottomStyle: 'none', borderTopStyle: ''}}>
           <h3>A Warning About Seed Generators</h3>
-          <p style={{textAlign: 'left', marginLeft: '8px', fontSize: '120%'}}>
+          <div style={{textAlign: 'left', marginLeft: '8px', fontSize: '120%'}}>
           <ul>
             <li>Seed Generators have been known in the past to be malicious and designed to steal your seeds (and in turn steal your IOTA tokens). </li>
             <li>This tool should only be used for testing purposes. However, if you do decide to use this to generate your seed (or any other generator) you should be sure to change a handful of characters manually.</li>
             <li>The most secure way to generate seeds is to manually come up with the 81 characters, making sure they are completely random.</li>
           </ul>
-          </p>
+          </div>
         </div>
-        <div class="cautionStripes" style={{borderTopStyle: 'none'}}></div>
+        <div className="cautionStripes" style={{borderTopStyle: 'none'}}></div>
         <br></br>
         <Button bsStyle="danger" onClick={this.handleClick.bind(this)}>Continue</Button>
       </div>
@@ -60,7 +60,7 @@ class MouseBox extends React.Component {
   render() {
     return(
       <div>
-        <h3 class="centerHeader">Entropy {Math.floor((this.props.collected / collectionPoints)*100)}%&nbsp;
+        <h3 className="centerHeader">Entropy {Math.floor((this.props.collected / collectionPoints)*100)}%&nbsp;
           <a data-tip data-for='entropyTip'><img src={tipIcon} alt='?'width="20px"/></a>
         </h3>
 
@@ -69,8 +69,8 @@ class MouseBox extends React.Component {
           used to help randomize your seed.</p>
         </ReactTooltip>
 
-        <div class="mouseBox" onMouseMove={this.handleMouseMove.bind(this)}>
-          <div class="mouseBoxText">{ this.state.str }</div>
+        <div className="mouseBox" onMouseMove={this.handleMouseMove.bind(this)}>
+          <div className="mouseBoxText">{ this.state.str }</div>
 
         </div>
       </div>
@@ -129,7 +129,7 @@ class GenerateSeed extends React.Component {
           </p>
         <MouseBox randArr={this.state.randArr} collected={this.state.collected} onMouseMove={this.mouseMove} />
         <br></br><br></br>
-        <div class="seedBox">
+        <div className="seedBox">
           {seed}
         </div>
       </div>
@@ -156,7 +156,7 @@ export class GenerateSeedMain extends React.Component {
     else { page = <GenerateSeed />; }
 
     return (
-      <div class="center">
+      <div className="center">
         <h1>Generate Seed</h1>
 
         {page}

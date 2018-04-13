@@ -27,15 +27,15 @@ class App extends React.Component {
     return (
       <div>
         <NavBar currPage={this.state.currPage} onClick={this.changePage}/>
-        <div class={css}>
+        <div className={css}>
           <br></br>
           {main}
         </div>
         <br></br><br></br><br></br>
-        <h5 class="center">Donations</h5>
-        <h6 class="center">IOTA: YSDSRPVBTHVCISWLBCLQRAFDKPNZPDXKHEEGFUNFCSDQYVYXGIYNRHBEIYPLWXUGAQDSCXPHNNIMZZMBCQQO9LZVJY</h6>
-        <h6 class="center">BTC: 18cx6rPftt1tqX736CewAp84X5bsceBAQL</h6>
-        <h6 class="center">ETH: 0x60d2080d9494134a537ab3f987d3c34a309b489c</h6>
+        <h5 className="center">Donations</h5>
+        <h6 className="center">IOTA: YSDSRPVBTHVCISWLBCLQRAFDKPNZPDXKHEEGFUNFCSDQYVYXGIYNRHBEIYPLWXUGAQDSCXPHNNIMZZMBCQQO9LZVJY</h6>
+        <h6 className="center">BTC: 18cx6rPftt1tqX736CewAp84X5bsceBAQL</h6>
+        <h6 className="center">ETH: 0x60d2080d9494134a537ab3f987d3c34a309b489c</h6>
 
       </div>
     );

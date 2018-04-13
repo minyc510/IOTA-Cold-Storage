@@ -15,7 +15,7 @@ class Page1 extends React.Component {
 
   render() {
     return (
-      <div class="center">
+      <div className="center">
         <h1>IOTA Paper Wallet Generator</h1>
         <h4>Use your web browser to generate a paper wallet for IOTA. </h4>
         <h5>Please take caution to ensure your IOTA tokens will be safe when using this tool.</h5>
@@ -46,9 +46,9 @@ class Page2 extends React.Component {
   render() {
     return (
       <div>
-        <h1 class="center">First, You Need a Seed</h1>
+        <h1 className="center">First, You Need a Seed</h1>
         <div >
-          <p class="infoBox">
+          <p className="infoBox">
             <b style={{fontSize: '110%'}}>An IOTA seed is like a master password required to spend your funds</b>.<br></br>
             We use them to generate IOTA addresses,
             where all funds sent to those addresses can be spent using that seed.
@@ -56,17 +56,17 @@ class Page2 extends React.Component {
             Note all alphanumeric characters must be upper-case.
           </p><br></br>
 
-          <p class="infoBox">You should keep your IOTA seed safe! Anyone who has your seed can use it to steal your funds.
+          <p className="infoBox">You should keep your IOTA seed safe! Anyone who has your seed can use it to steal your funds.
           It is analagous to the private keys of Bitcoin, Ether, or any other traditional block-chain cryptocurrency.
           </p>
         </div>
 
         <br></br>
-        <div class="center">
+        <div className="center">
           <Button style={{marginRight: '75px'}} bsStyle="primary" onClick={this.exPage.bind(this, 'Paper Wallet')}><Glyphicon glyph="ok" /> I have my own seed</Button>{' '}
           <Button bsStyle="primary" onClick={this.exPage.bind(this, 'Generate Seed')}><Glyphicon glyph="leaf" /> I need a seed</Button>
           <br></br><br></br>
-          <div class="back">
+          <div className="back">
             <Button bsStyle="success" onClick={this.inPage.bind(this, 1)}><Glyphicon glyph="chevron-left" /> Back</Button>
           </div>
         </div>

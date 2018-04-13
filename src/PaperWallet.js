@@ -44,7 +44,7 @@ class SeedForm extends React.Component {
 
   render() {
     return (
-      <div class="shortWidth">
+      <div className="shortWidth">
       <form onSubmit={this.handleClick}>
         <FormGroup
           controlId="formBasicText"
@@ -87,10 +87,6 @@ class WalletTemplate extends React.Component {
 }
 
 class WalletImage extends React.Component {
-    constructor(props) {
-      super(props);
-    }
-
     render() {
 
     var pub = <Text
@@ -121,7 +117,7 @@ class WalletImage extends React.Component {
         <div>
           <br></br>
           <h5>Wallet Address: {this.props.a}</h5>
-          <div class="walletTemplate">
+          <div className="walletTemplate">
             <Stage width={window.innerWidth} height={window.innerHeight}>
               <Layer>
                 <WalletTemplate theme={this.props.theme}/>
@@ -304,7 +300,7 @@ export class PaperWallet extends React.Component {
 
     return (
       <div>
-        <h1 class="center">Paper Wallet Generator</h1>
+        <h1 className="center">Paper Wallet Generator</h1>
 
         <div style={{paddingLeft:'7px'}}>
           <AdvOptPanel changeSecurity={this.changeSecurity} changeChecksum={this.changeChecksum}/>
