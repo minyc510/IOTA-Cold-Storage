@@ -22,7 +22,7 @@ class SeedForm extends React.Component {
     const seed = this.state.value;
     const length = this.state.value.length;
 
-    if (length === 0) return '';
+    if (length === 0) return null;
     if (seed.length !== 81) { return 'error'; }
     for (var i=0; i < 81; i++) {
       var currAscii = seed.charCodeAt(i);
@@ -160,22 +160,13 @@ class AdvOptPanel extends React.Component {
         <Panel.Collapse>
           <Panel.Body style={{paddingBottom: '0px'}}>
           <p>Default values are reccommended.</p>
+
           <Table striped bordered condensed hover>
             <thead>
               <tr>
                 <th data-tip data-for='securityTip'>Security Level</th>
                 <th data-tip data-for='checksumTip'>Append Checksum</th>
 
-                <ReactTooltip id='securityTip' place="right" type="dark" effect="float">
-                  <div style={{fontSize: '110%'}}>A higher security level makes it harder to brute-force a key-signature. <br></br>
-                  However, more PoW is required for transactions.</div>
-                </ReactTooltip>
-
-                <ReactTooltip id='checksumTip' place="right" type="dark" effect="float">
-                  <div style={{fontSize: '110%', }}>Adds a 9-character 'checksum' to your address. When sending tokens to an address with a checksum,
-                  if the checksum does not match the address, the network will reject the transaction.
-                  A checksum helps to ensure a user is sending to the correct address.</div>
-                </ReactTooltip>
               </tr>
             </thead>
             <tbody>
@@ -201,6 +192,19 @@ class AdvOptPanel extends React.Component {
               </tr>
             </tbody>
           </Table>
+
+          {/*Tool tips for Advanced Options*/}
+          <ReactTooltip id='securityTip' place="right" type="dark" effect="float" style={{fontSize: '110%', }}>
+            A higher security level makes it harder to brute-force a key-signature. <br></br>
+            However, more PoW is required for transactions.
+          </ReactTooltip>
+
+          <ReactTooltip id='checksumTip' place="right" type="dark" effect="float" style={{fontSize: '110%', }}>
+            Appends a 9-character 'checksum' to your address, this helps to ensure a user is sending to the correct address.
+            When sending tokens to an address with a checksum,
+            if the checksum does not match the address, the network will reject the transaction.
+          </ReactTooltip>
+
           </Panel.Body>
         </Panel.Collapse>
       </Panel>

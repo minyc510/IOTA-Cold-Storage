@@ -101,7 +101,6 @@ export class Home extends React.Component {
     if (this.state.currPage === 2) {
       page = <Page2 inPage={this.changeInternalPage} exPage={this.changeExternalPage}/>;
     }
-
     return (
       <div>
         {page}
