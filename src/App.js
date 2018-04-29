@@ -31,7 +31,7 @@ class App extends React.Component {
           <br></br>
           {main}
         </div>
-        <br></br><br></br><br></br>
+        <br></br><br></br><br></br><br></br>
         <h5 className="center">Donations</h5>
         <h6 className="center">IOTA: YSDSRPVBTHVCISWLBCLQRAFDKPNZPDXKHEEGFUNFCSDQYVYXGIYNRHBEIYPLWXUGAQDSCXPHNNIMZZMBCQQO9LZVJY</h6>
         <h6 className="center">BTC: 18cx6rPftt1tqX736CewAp84X5bsceBAQL</h6>

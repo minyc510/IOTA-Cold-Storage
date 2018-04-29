@@ -27,7 +27,7 @@ class WarningPage extends React.Component {
           <div style={{textAlign: 'left', marginLeft: '8px', fontSize: '120%'}}>
           <ul>
             <li>Seed Generators have been known in the past to be malicious and designed to steal your seeds (and in turn steal your IOTA tokens). </li>
-            <li>This tool should only be used for testing purposes. However, if you do decide to use this to generate your seed (or any other generator) you should be sure to change a handful of characters manually.</li>
+            <li>This tool should be used for testing and demonstration purposes only. However, if you do decide to use this to generate your seed (or any other generator) you should be sure to change a handful of characters manually.</li>
             <li>The most secure way to generate seeds is to manually come up with the 81 characters, making sure they are completely random.</li>
           </ul>
           </div>

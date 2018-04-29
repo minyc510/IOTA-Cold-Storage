@@ -59,7 +59,7 @@ select {
   padding: 0;
   overflow: hidden;
   height: 60px;
-  background-color: #0288D1;
+  background-color: #03A9F4 ;
 }
 .navLi {
   float: left;
@@ -85,7 +85,7 @@ select {
 }
 
 li a:hover:not(.active) { background-color: #29B6F6; }
-.active { background-color: #00B0FF; }
+.active { background-color: #039BE5; }
 .inactive { background-color: #0277BD;  }
 
 /* FAQ */
@@ -151,8 +151,6 @@ body {
   font-size: 16px;
   background-color: #E1F5FE;
 }
-
-
 
 h1,h2,h3,h4,h5,h6 {
   margin: 8px;
