@@ -56,12 +56,18 @@ class Page2 extends React.Component {
             Note all alphanumeric characters must be upper-case.
           </p><br></br>
 
-          <p className="infoBox">You should keep your IOTA seed safe! Anyone who has your seed can use it to steal your funds.
+          <p className="infoBox">Keep your IOTA seed safe, anyone who has your seed can use it to steal your funds.
           It is analagous to the private keys of Bitcoin, Ether, or any other traditional block-chain cryptocurrency.
           </p>
         </div>
-
         <br></br>
+        <div className="center">
+          <Button bsStyle="primary" onClick={this.inPage.bind(this, 1)}><Glyphicon glyph="chevron-left" /> Back</Button>{' '}
+          <Button bsStyle="primary" onClick={this.exPage.bind(this, 'Paper Wallet')}><Glyphicon glyph="ok" /> I have a seed</Button>{' '}
+          <Button bsStyle="primary" onClick={this.exPage.bind(this, 'Generate Seed')}><Glyphicon glyph="leaf" /> I need a seed</Button>
+        </div>
+        <br></br>
+        {/*
         <div className="center">
           <Button style={{marginRight: '75px'}} bsStyle="primary" onClick={this.exPage.bind(this, 'Paper Wallet')}><Glyphicon glyph="ok" /> I have my own seed</Button>{' '}
           <Button bsStyle="primary" onClick={this.exPage.bind(this, 'Generate Seed')}><Glyphicon glyph="leaf" /> I need a seed</Button>
@@ -70,6 +76,7 @@ class Page2 extends React.Component {
             <Button bsStyle="success" onClick={this.inPage.bind(this, 1)}><Glyphicon glyph="chevron-left" /> Back</Button>
           </div>
         </div>
+        */}
       </div>
     );
   }

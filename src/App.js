@@ -4,7 +4,6 @@ import { NavBar } from './NavBar.js'
 import { Home } from './Home.js'
 import { PaperWallet } from './PaperWallet.js'
 import { GenerateSeedMain } from './GenerateSeed.js'
-import { FAQ } from './FAQ.js'
 
 class App extends React.Component {
   constructor(props) {
@@ -23,7 +22,6 @@ class App extends React.Component {
     if (this.state.currPage === 'Home') {main = <Home currPage={this.state.currPage} onClick={this.changePage}/>; css = "shortMain"}
     if (this.state.currPage === 'Paper Wallet') { main = <PaperWallet />}
     if (this.state.currPage === 'Generate Seed') { main = <GenerateSeedMain />}
-    if (this.state.currPage === 'FAQ') { main = <FAQ />}
     return (
       <div>
         <NavBar currPage={this.state.currPage} onClick={this.changePage}/>

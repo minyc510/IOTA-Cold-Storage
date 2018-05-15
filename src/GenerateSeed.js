@@ -5,8 +5,7 @@ import tipIcon from './images/toolTipIcon.png';
 import { Button } from 'react-bootstrap';
 
 
-var collectionPoints = 300; //Number of mouse-coordinates required
-
+var collectionPoints = 100; //Number of mouse-coordinates required
 //Warning about Seed Generators
 class WarningPage extends React.Component {
   constructor(props) {
@@ -27,14 +26,14 @@ class WarningPage extends React.Component {
           <div style={{textAlign: 'left', marginLeft: '8px', fontSize: '120%'}}>
           <ul>
             <li>Seed Generators have been known in the past to be malicious and designed to steal your seeds (and in turn steal your IOTA tokens). </li>
-            <li>This tool should be used for testing and demonstration purposes only. However, if you do decide to use this to generate your seed (or any other generator) you should be sure to change a handful of characters manually.</li>
+            <li><b>This tool should be used for testing and demonstration purposes only.</b> However, if you do decide to use this to generate your seed (or any other generator) you should be sure to change a handful of characters manually.</li>
             <li>The most secure way to generate seeds is to manually come up with the 81 characters, making sure they are completely random.</li>
           </ul>
           </div>
         </div>
         <div className="cautionStripes" style={{borderTopStyle: 'none'}}></div>
         <br></br>
-        <Button bsStyle="danger" onClick={this.handleClick.bind(this)}>Continue</Button>
+        <Button bsStyle="primary" onClick={this.handleClick.bind(this)}>Continue</Button>
       </div>
     );
   }
@@ -71,7 +70,6 @@ class MouseBox extends React.Component {
 
         <div className="mouseBox" onMouseMove={this.handleMouseMove.bind(this)}>
           <div className="mouseBoxText">{ this.state.str }</div>
-
         </div>
       </div>
     );
@@ -158,7 +156,6 @@ export class GenerateSeedMain extends React.Component {
     return (
       <div className="center">
         <h1>Generate Seed</h1>
-
         {page}
       </div>
     );
