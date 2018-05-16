@@ -59,23 +59,19 @@ select {
   padding: 0;
   overflow: hidden;
   height: 60px;
-  background-color: #000000; /* Main Color*/
+  background-color: #03A9F4 ;
 }
 .navLi {
   float: left;
 }
 .navLi a {
   display: block;
-  color: #b4b9ba;
+  color: white;
   height: 60px;
   text-align: center;
   padding: 20px 24px;
   text-decoration: none;
 }
-li a:hover:not(.active) { color: white; }
-.active { background-color: #444444; }
-/*.inactive { background-color: #0277BD;  }*/
-
 .github {
   float: right;
 }
@@ -88,6 +84,9 @@ li a:hover:not(.active) { color: white; }
   text-decoration: none;
 }
 
+li a:hover:not(.active) { background-color: #29B6F6; }
+.active { background-color: #039BE5; }
+.inactive { background-color: #0277BD;  }
 /* Generate Seed */
 .centerHeader { text-align: center; }
 

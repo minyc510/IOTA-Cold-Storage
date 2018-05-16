@@ -122,7 +122,7 @@ class GenerateSeed extends React.Component {
     if (this.state.collected === collectionPoints) { seed = this.generateSeed(); }
     return (
       <div>
-          <p style={{fontSize: '120%'}}>
+          <p style={{fontSize: '120%', width: '74%',  margin: 'auto'}}>
           Move your mouse around the box below, once enough entropy has been collected, your seed will be generated.
           </p>
         <MouseBox randArr={this.state.randArr} collected={this.state.collected} onMouseMove={this.mouseMove} />
