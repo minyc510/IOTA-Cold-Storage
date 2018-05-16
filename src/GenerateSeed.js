@@ -22,12 +22,12 @@ class WarningPage extends React.Component {
       <div>
         <div className="cautionStripes" style={{borderBottomStyle: 'none'}}></div>
         <div className="cautionWell" style={{borderBottomStyle: 'none', borderTopStyle: ''}}>
-          <h3>A Warning About Seed Generators</h3>
+          <h3 style={{fontWeight: 'bold'}}>Caution!</h3>
           <div style={{textAlign: 'left', marginLeft: '8px', fontSize: '120%'}}>
           <ul>
-            <li>Seed Generators have been known in the past to be malicious and designed to steal your seeds (and in turn steal your IOTA tokens). </li>
-            <li><b>This tool should be used for testing and demonstration purposes only.</b> However, if you do decide to use this to generate your seed (or any other generator) you should be sure to change a handful of characters manually.</li>
-            <li>The most secure way to generate seeds is to manually come up with the 81 characters, making sure they are completely random.</li>
+            <li>Online Seed Generators by nature, are insecure. </li>
+            <li>This tool should be used for testing and demonstration purposes only.</li>
+            <li>If you use any seed generator, you should be sure to manually change a handful of characters. </li>
           </ul>
           </div>
         </div>

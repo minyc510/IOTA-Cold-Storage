@@ -90,25 +90,25 @@ class WalletImage extends React.Component {
     render() {
 
     var pub = <Text
-      text="Public Wallet Address:" fontSize="18" fontFamily="Courier New"
+      text="Public Wallet Address:" fontSize="18" fontFamily="Courier New" fontStyle="bold"
       x="18"
       y="35"
     />
 
     var priv = <Text
-      text="Private Seed:" fontColor="white" fontSize="18" fontFamily="Courier New"
+      text="Private Seed:" fontColor="white" fontSize="18" fontFamily="Courier New" fontStyle="bold"
       x="18"
       y="85"
     />
 
     var address = <Text
-      text={this.props.a} fontSize="15" fontFamily="Courier New"
+      text={this.props.a} fontSize="13" fontFamily="Courier New"
       x="17"
       y="55"
     />
 
     var seed = <Text
-      text={this.props.s} fontSize="15" fontFamily="Courier New"
+      text={this.props.s} fontSize="13" fontFamily="Courier New"
       x="17"
       y="105"
     />

@@ -125,7 +125,7 @@ li a:hover:not(.active) { background-color: #29B6F6; }
 }
 .cautionStripes {
   width: 85%;
-  height: 30px;
+  height: 20px;
   border: 2px solid black;
   margin: 0 auto;
   background-image: url("./images/cautionStripes.png");
