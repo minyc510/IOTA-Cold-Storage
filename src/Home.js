@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import { Button, Glyphicon } from 'react-bootstrap';
-
 class Page1 extends React.Component {
   constructor(props) {
     super(props);
@@ -18,7 +17,6 @@ class Page1 extends React.Component {
       <div className="center">
         <h1>IOTA Paper Wallet Generator</h1>
         <h4>Use your web browser to generate a paper wallet for IOTA. </h4>
-        <h5>Please take caution to ensure your IOTA tokens will be safe when using this tool.</h5>
         <br></br>
         <Button bsStyle="primary" onClick={this.handleClick.bind(this)}><Glyphicon glyph="send" /> Start</Button>
       </div>

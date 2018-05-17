@@ -2,10 +2,7 @@ import React from 'react';
 import './App.css';
 import { Stage, Layer, Image, Text } from "react-konva";
 import greyNetworkTemplate from './images/greyTemplate.png';
-import plainWhiteTemplate from './images/plainTemplate.png';
-
 import ReactTooltip from '../node_modules/react-tooltip';
-
 import IOTA from '../node_modules/iota.lib.js/lib/iota.js';
 import { FormGroup, FormControl, Button, Panel, Radio, Table } from 'react-bootstrap';
 
@@ -70,13 +67,12 @@ class SeedForm extends React.Component {
 class WalletTemplate extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { image: null, theme: this.props.theme };
+    this.state = { image: null };
   }
 
   componentDidMount() {
     const image = new window.Image();
-    if (this.state.theme === 'greyNetwork') { image.src = greyNetworkTemplate; }
-    if (this.state.theme === 'plainWhite') { image.src = plainWhiteTemplate; }
+    image.src = greyNetworkTemplate;
 
     image.onload = () => {
       this.setState({ image: image });
@@ -92,39 +88,54 @@ class WalletImage extends React.Component {
     var pub = <Text
       text="Public Wallet Address:" fontSize="18" fontFamily="Courier New" fontStyle="bold"
       x="18"
+      y="15"
+    />
+
+    var add0 = <Text
+      text={this.props.add0} fontSize="13" fontFamily="Courier New"
+      x="17"
       y="35"
+    />
+
+    var add1 = <Text
+      text={this.props.add1} fontSize="13" fontFamily="Courier New"
+      x="17"
+      y="55"
     />
 
     var priv = <Text
       text="Private Seed:" fontColor="white" fontSize="18" fontFamily="Courier New" fontStyle="bold"
       x="18"
-      y="85"
+      y="75"
     />
 
-    var address = <Text
-      text={this.props.a} fontSize="13" fontFamily="Courier New"
+    var seed0 = <Text
+      text={this.props.seed0} fontSize="13" fontFamily="Courier New"
       x="17"
-      y="55"
+      y="95"
     />
 
-    var seed = <Text
-      text={this.props.s} fontSize="13" fontFamily="Courier New"
+    var seed1 = <Text
+      text={this.props.seed1} fontSize="13" fontFamily="Courier New"
       x="17"
-      y="105"
+      y="115"
     />
 
     return (
         <div>
           <br></br>
-          <h5>Wallet Address: {this.props.a}</h5>
+          <h5 style={{fontWeight: 'bold'}}>Wallet Address:</h5>
+          <h6>{this.props.fullAddress}</h6>
           <div className="walletTemplate">
             <Stage width={window.innerWidth} height={window.innerHeight}>
               <Layer>
-                <WalletTemplate theme={this.props.theme}/>
+                <WalletTemplate/>
                 {pub}
                 {priv}
-                {address}
-                {seed}
+                {add0}
+                {add1}
+                {seed0}
+                {seed1}
               </Layer>
             </Stage>
           </div>
@@ -211,41 +222,15 @@ class AdvOptPanel extends React.Component {
     );
   }
 }
-/*
-class ThemeSelect extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleThemeChange = this.handleThemeChange.bind(this);
-  }
-
-  handleThemeChange(event) { this.props.changeTheme(event.target.value); }
-
-  render() {
-    return (
-      <div>
-        <b style={{marginRight:'4px'}}>Wallet Theme</b>
-
-        <select onChange={this.handleThemeChange}>
-          <option value='greyNetwork'>Grey Network</option>
-          <option value='plainWhite'>Plain White</option>
-          <option value='blue'>Blue</option>
-          <option value='grid'>Grid</option>
-        </select>
-      </div>
-    );
-  }
-}
-*/
 
 //Main PaperWallet Body
 export class PaperWallet extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { seed: '', address: '', security: 2, checksum: true, theme: 'greyNetwork' };
+    this.state = { seed: '', address: '', security: 2, checksum: true};
     this.handleChange = this.handleChange.bind(this);
     this.changeSecurity = this.changeSecurity.bind(this);
     this.changeChecksum = this.changeChecksum.bind(this);
-    this.changeTheme = this.changeTheme.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -254,8 +239,6 @@ export class PaperWallet extends React.Component {
   changeSecurity(secLevel) { this.setState({ security: secLevel }); }
 
   changeChecksum(checkSumBool) { this.setState({ checksum: checkSumBool }); }
-
-  changeTheme(newTheme) { this.setState({ theme: newTheme }); }
 
   handleSubmit(seed) {
     this.setState({ seed: seed });
@@ -299,8 +282,30 @@ export class PaperWallet extends React.Component {
   }
 
   render() {
+
+
     let image = null;
-    if (this.state.address !== '') { image = <WalletImage a={this.state.address} s={this.state.seed} theme={this.state.theme}/>; }
+    if (this.state.address !== '') {
+      //Split up address for easy reading
+      let rawAddress = this.state.address
+      let newAdd = '';
+      for (let i = 0; i < this.state.address.length/9; i++) {
+          newAdd += rawAddress.substring((9*i), (9*i)+9);
+          newAdd += ' '
+      }
+      let add0 = newAdd.substring(0, 50);
+      let add1 = newAdd.substring(50, 100);
+      //Split up seed for easy reading
+      let rawSeed = this.state.seed
+      let newSeed = '';
+      for (let i = 0; i < this.state.seed.length/9; i++) {
+          newSeed += rawSeed.substring((9*i), (9*i)+9);
+          newSeed += ' '
+      }
+      let seed0 = newSeed.substring(0, 50);
+      let seed1 = newSeed.substring(50, 100);
+      image = <WalletImage fullAddress={this.state.address} add0={add0} add1={add1} seed0={seed0} seed1={seed1}/>;
+     }
 
     return (
       <div>
@@ -308,7 +313,6 @@ export class PaperWallet extends React.Component {
 
         <div style={{paddingLeft:'7px'}}>
           <AdvOptPanel changeSecurity={this.changeSecurity} changeChecksum={this.changeChecksum}/>
-          {/*<ThemeSelect changeTheme={this.changeTheme}/>*/}
 
           <SeedForm submit={this.handleSubmit} changeSecurity={this.changeSecurity} changeChecksum={this.changeChecksum}/>
         </div>
