@@ -21,7 +21,6 @@ class Page1 extends React.Component {
         <h5>Please take caution to ensure your IOTA tokens will be safe when using this tool.</h5>
         <br></br>
         <Button bsStyle="primary" onClick={this.handleClick.bind(this)}><Glyphicon glyph="send" /> Start</Button>
-        <br></br><br></br>
       </div>
     );
   }
@@ -32,7 +31,6 @@ class Page2 extends React.Component {
     super(props);
     this.inPage = this.inPage.bind(this);
     this.exPage = this.exPage.bind(this);
-
   }
 
   inPage(page) {
@@ -66,17 +64,6 @@ class Page2 extends React.Component {
           <Button bsStyle="primary" onClick={this.exPage.bind(this, 'Paper Wallet')}><Glyphicon glyph="ok" /> I have a seed</Button>{' '}
           <Button bsStyle="primary" onClick={this.exPage.bind(this, 'Generate Seed')}><Glyphicon glyph="leaf" /> I need a seed</Button>
         </div>
-        <br></br>
-        {/*
-        <div className="center">
-          <Button style={{marginRight: '75px'}} bsStyle="primary" onClick={this.exPage.bind(this, 'Paper Wallet')}><Glyphicon glyph="ok" /> I have my own seed</Button>{' '}
-          <Button bsStyle="primary" onClick={this.exPage.bind(this, 'Generate Seed')}><Glyphicon glyph="leaf" /> I need a seed</Button>
-          <br></br><br></br>
-          <div className="back">
-            <Button bsStyle="success" onClick={this.inPage.bind(this, 1)}><Glyphicon glyph="chevron-left" /> Back</Button>
-          </div>
-        </div>
-        */}
       </div>
     );
   }

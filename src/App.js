@@ -19,7 +19,7 @@ class App extends React.Component {
   render() {
     let main = null;
     let css = "main";
-    if (this.state.currPage === 'Home') {main = <Home currPage={this.state.currPage} onClick={this.changePage}/>; css = "shortMain"}
+    if (this.state.currPage === 'Home') {main = <Home currPage={this.state.currPage} onClick={this.changePage}/>}
     if (this.state.currPage === 'Paper Wallet') { main = <PaperWallet />}
     if (this.state.currPage === 'Generate Seed') { main = <GenerateSeedMain />}
     return (
@@ -34,7 +34,6 @@ class App extends React.Component {
         <h6 className="center">IOTA: YSDSRPVBTHVCISWLBCLQRAFDKPNZPDXKHEEGFUNFCSDQYVYXGIYNRHBEIYPLWXUGAQDSCXPHNNIMZZMBCQQO9LZVJY</h6>
         <h6 className="center">BTC: 18cx6rPftt1tqX736CewAp84X5bsceBAQL</h6>
         <h6 className="center">ETH: 0x60d2080d9494134a537ab3f987d3c34a309b489c</h6>
-
       </div>
     );
   }
