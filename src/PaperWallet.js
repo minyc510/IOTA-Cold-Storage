@@ -127,7 +127,7 @@ class WalletImage extends React.Component {
           <h5 style={{fontWeight: 'bold'}}>Wallet Address:</h5>
           <h6>{this.props.fullAddress}</h6>
           <div className="walletTemplate">
-            <Stage width={window.innerWidth} height={window.innerHeight}>
+            <Stage width={630} height={231}>
               <Layer>
                 <WalletTemplate/>
                 {pub}
@@ -313,10 +313,8 @@ export class PaperWallet extends React.Component {
 
         <div style={{paddingLeft:'7px'}}>
           <AdvOptPanel changeSecurity={this.changeSecurity} changeChecksum={this.changeChecksum}/>
-
           <SeedForm submit={this.handleSubmit} changeSecurity={this.changeSecurity} changeChecksum={this.changeChecksum}/>
         </div>
-
         {image}
       </div>
     );
