@@ -5,6 +5,7 @@
   "dependencies": {
     "ajv": "^6.5.0",
     "bootstrap": "^4.0.0",
+    "hoek": "^5.0.3",
     "iota.lib.js": "^0.4.7",
     "jquery": "^3.0.0",
     "konva": "^2.1.3",
