@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import ReactTooltip from '../node_modules/react-tooltip';
 import tipIcon from './images/toolTipIcon.png';
-import { Button } from 'react-bootstrap';
+import { Button, Glyphicon } from 'react-bootstrap';
 
 
 var collectionPoints = 100; //Number of mouse-coordinates required
@@ -20,9 +20,8 @@ class WarningPage extends React.Component {
   render() {
     return (
       <div>
-        <div className="cautionStripes" style={{borderBottomStyle: 'none'}}></div>
-        <div className="cautionWell" style={{borderBottomStyle: 'none', borderTopStyle: ''}}>
-          <h3 style={{fontWeight: 'bold'}}>Caution!</h3>
+        <div className="caution">
+          <h3 style={{fontWeight: 'bold'}}><Glyphicon glyph="warning-sign"/> Caution!</h3>
           <div style={{textAlign: 'left', marginLeft: '8px', fontSize: '120%'}}>
           <ul>
             <li>Online Seed Generators by nature, are insecure. </li>
@@ -31,7 +30,6 @@ class WarningPage extends React.Component {
           </ul>
           </div>
         </div>
-        <div className="cautionStripes" style={{borderTopStyle: 'none'}}></div>
         <br></br>
         <Button bsStyle="primary" onClick={this.handleClick.bind(this)}>Continue</Button>
       </div>
@@ -59,7 +57,7 @@ class MouseBox extends React.Component {
   render() {
     return(
       <div>
-        <h3 className="centerHeader">Entropy {Math.floor((this.props.collected / collectionPoints)*100)}%&nbsp;
+        <h3 className="center">Entropy {Math.floor((this.props.collected / collectionPoints)*100)}%&nbsp;
           <a data-tip data-for='entropyTip'><img src={tipIcon} alt='?'width="20px"/></a>
         </h3>
 
@@ -69,7 +67,7 @@ class MouseBox extends React.Component {
         </ReactTooltip>
 
         <div className="mouseBox" onMouseMove={this.handleMouseMove.bind(this)}>
-          <div className="mouseBoxText">{ this.state.str }</div>
+          <div style={{ fontSize: "80%" }}>{ this.state.str }</div>
         </div>
       </div>
     );

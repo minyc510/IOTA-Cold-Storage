@@ -41,7 +41,7 @@ class SeedForm extends React.Component {
 
   render() {
     return (
-      <div className="shortWidth">
+      <div style={{ width: "85%" }}>
       <form onSubmit={this.handleClick}>
         <FormGroup
           controlId="formBasicText"

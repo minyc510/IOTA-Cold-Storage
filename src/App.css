@@ -1,16 +1,18 @@
-/* Opener */
-.left {
-  float: left;
+/* Paper Wallet */
+.advancedOptions {
+  padding-top: 8px;
+  width: 40%;
+  height: 100px;
+  margin-left: 8px;
+  border: 1px solid black;
+  border-radius: 4px;
+  background-color: #4FC3F7;
+  word-wrap: break-word;
 }
 
 .advOptToggle {
   margin:8px;
   font-weight: bold;
-}
-
-/* Paper Wallet */
-.shortWidth {
-  width: 85%;
 }
 
 form-control-feedback {
@@ -23,31 +25,6 @@ form-control-feedback {
   margin-left: 0.75%;
 }
 
-.selectText {
-  margin:8px;
-  font-size: 16px;
-  font-weight: bold;
-}
-
-select {
-  height:30px;
-}
-
-.marginTop {
-  margin-top: 8px;
-}
-
-.advancedOptions {
-  padding-top: 8px;
-  width: 40%;
-  height: 100px;
-  margin-left: 8px;
-  border: 1px solid black;
-  border-radius: 4px;
-  background-color: #4FC3F7;
-  word-wrap: break-word;
-}
-
 /* NavBar */
 .navUl {
   list-style-type: none;
@@ -57,9 +34,9 @@ select {
   height: 60px;
   background-color: #03A9F4 ;
 }
-.navLi {
-  float: left;
-}
+
+.navLi { float: left; }
+
 .navLi a {
   display: block;
   color: white;
@@ -68,9 +45,9 @@ select {
   padding: 20px 24px;
   text-decoration: none;
 }
-.github {
-  float: right;
-}
+
+.github { float: right; }
+
 .github a {
   display: block;
   color: white;
@@ -83,11 +60,8 @@ select {
 li a:hover:not(.active) { background-color: #29B6F6; }
 .active { background-color: #039BE5; }
 .inactive { background-color: #0277BD;  }
+
 /* Generate Seed */
-.centerHeader { text-align: center; }
-
-.center { text-align: center; }
-
 .mouseBox {
   width: 80%;
   height: 250px;
@@ -102,8 +76,6 @@ li a:hover:not(.active) { background-color: #29B6F6; }
   word-wrap: break-word;
   overflow: hidden;
 }
-
-.mouseBoxText { font-size: 80%; }
 
 .seedBox {
   width: 90%;
@@ -120,16 +92,8 @@ li a:hover:not(.active) { background-color: #29B6F6; }
   line-height: 50px;
   font-size: 80%;
 }
-.cautionStripes {
-  width: 85%;
-  height: 20px;
-  border: 2px solid black;
-  margin: 0 auto;
-  background-image: url("./images/cautionStripes.png");
-  background-size:cover;
-}
 
-.cautionWell {
+.caution {
   width: 85%;
   border: 2px solid black;
   margin: 0 auto;
@@ -148,9 +112,7 @@ h1,h2,h3,h4,h5,h6 {
   margin-top: 5;
 }
 
-.bold {
-  font-weight: bold;
-}
+.center { text-align: center; }
 
 .main {
   width: 75%;
@@ -165,9 +127,4 @@ h1,h2,h3,h4,h5,h6 {
   border-style: solid;
   border-color: #03A9F4;
   border-radius: 5px;
-}
-
-.back {
-  float: left;
-  margin-right:800px;
 }
