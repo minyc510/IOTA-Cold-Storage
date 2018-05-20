@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "ajv": "^5.5.2",
+    "ajv": "^6.5.0",
     "bootstrap": "^4.1.1",
     "hoek": "^5.0.3",
     "iota.lib.js": "^0.4.7",
@@ -14,7 +14,7 @@
     "react-bootstrap": "^0.32.1",
     "react-dom": "^16.3.2",
     "react-konva": "^1.7.3",
-    "react-scripts": "1.1.0",
+    "react-scripts": "^1.1.4",
     "react-tooltip": "^3.6.0"
   },
   "scripts": {
