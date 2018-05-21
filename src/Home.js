@@ -16,7 +16,12 @@ class Page1 extends React.Component {
     return (
       <div className="center">
         <h1>IOTA Paper Wallet Generator</h1>
-        <h4>Use your web browser to generate a paper wallet for IOTA. </h4>
+        <p style={{fontSize: '100%', width: '74%',  margin: 'auto'}}>
+
+          This live version is for demonstrative purposes only -- running this application through the internet is insecure.
+          If you plan on storing IOTA on a paper wallet generated through this application, it is strongly reccommended that you
+          build and compile the git repository locally.
+        </p>
         <br></br>
         <Button bsStyle="primary" onClick={this.handleClick.bind(this)}><Glyphicon glyph="send" /> Start</Button>
       </div>
