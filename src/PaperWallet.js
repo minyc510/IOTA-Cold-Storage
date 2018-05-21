@@ -276,7 +276,7 @@ export class PaperWallet extends React.Component {
 
     }
     else {
-      alert('Seed Invalid!');
+      alert('Invalid Seed! Must be 81-characters long and consist only of (A-Z) and 9.');
     }
 
   }
@@ -307,6 +307,7 @@ export class PaperWallet extends React.Component {
       image = <WalletImage fullAddress={this.state.address} add0={add0} add1={add1} seed0={seed0} seed1={seed1}/>;
      }
 
+
     return (
       <div>
         <h1 className="center">Paper Wallet Generator</h1>
@@ -315,7 +316,10 @@ export class PaperWallet extends React.Component {
           <AdvOptPanel changeSecurity={this.changeSecurity} changeChecksum={this.changeChecksum}/>
           <SeedForm submit={this.handleSubmit} changeSecurity={this.changeSecurity} changeChecksum={this.changeChecksum}/>
         </div>
+        {/*Put */}
+        <div style={{overflow: 'auto'}}>
         {image}
+        </div>
       </div>
     );
   }
