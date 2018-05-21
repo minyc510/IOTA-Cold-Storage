@@ -4,6 +4,9 @@ This web-app generates IOTA addresses given a private seed and prints them onto 
 
 ## Build and Compile Locally
 
+Requires `node js`.
+Use `node -v` to check if you have it installed.
+
     git clone https://github.com/minyc510/IOTA-Cold-Storage.git
     cd IOTA-Cold-Storage
     npm install
