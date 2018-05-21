@@ -1,5 +1,5 @@
 {
-  "name": "iota-hub",
+  "name": "iota-cold-storage",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
