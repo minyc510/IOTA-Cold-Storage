@@ -97,7 +97,6 @@ li a:hover:not(.active) { background-color: #29B6F6; }
   width: 85%;
   border: 2px solid black;
   margin: 0 auto;
-  background-color: #4FC3F7;
   overflow: auto;
 }
 

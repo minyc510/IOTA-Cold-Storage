@@ -18,7 +18,8 @@ class Page1 extends React.Component {
         <h1>IOTA Paper Wallet Generator</h1>
         <p style={{fontSize: '100%', width: '74%',  margin: 'auto'}}>
 
-          This live version is for demonstrative purposes only -- running this application through the internet is insecure.
+          This live version is for demonstrative purposes only. This application uses private keys (aka seeds),
+          and working with private keys through an internet connection is inherently insecure.
           If you plan on storing IOTA on a paper wallet generated through this application, it is strongly reccommended that you
           build and compile the git repository locally.
         </p>
@@ -54,7 +55,7 @@ class Page2 extends React.Component {
             We use them to generate IOTA addresses,
             where all funds sent to those addresses can be spent using that seed.
             A seed is exactly 81 characters long, and can only consist of ('A'-'Z') and '9'.
-            Note all alphanumeric characters must be upper-case.
+            Note that all alphanumeric characters must be upper-case.
           </p><br></br>
 
           <p className="infoBox">Keep your IOTA seed safe, anyone who has your seed can use it to steal your funds.

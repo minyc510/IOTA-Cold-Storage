@@ -4,7 +4,6 @@ import ReactTooltip from '../node_modules/react-tooltip';
 import tipIcon from './images/toolTipIcon.png';
 import { Button, Glyphicon } from 'react-bootstrap';
 
-
 var collectionPoints = 100; //Number of mouse-coordinates required
 //Warning about Seed Generators
 class WarningPage extends React.Component {
@@ -158,5 +157,4 @@ export class GenerateSeedMain extends React.Component {
       </div>
     );
   }
-
 }
