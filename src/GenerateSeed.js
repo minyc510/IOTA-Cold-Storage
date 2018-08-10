@@ -46,8 +46,13 @@ class MouseBox extends React.Component {
   //Entropy Collection
   handleMouseMove(e) {
     if (this.props.collected < collectionPoints) {
-      let mouseEntropy = (e.screenX + e.screenY);
-      let tempStr = this.state.str + String.fromCharCode((e.screenX*e.screenY % 26)+65) + (e.screenX*e.screenY % 999);
+      let x = e.screenX;
+      let y = e.screenY;
+      if (x < 0) { x *= -1; }
+      if (y < 0) { y*= -1; }
+
+      let mouseEntropy = (x + y);
+      let tempStr = this.state.str + String.fromCharCode((x*y % 26)+65) + (x*y % 999);
       this.setState({str: tempStr});
       this.props.onMouseMove(this.props.collected+1, mouseEntropy);
     }
